@@ -64,10 +64,10 @@ struct MainView: View {
 
                 ScrollView(showsIndicators: false) {
                     LazyVStack(spacing: 10) {
-                        ForEach(1 ... 10, id: \.self) { idx in
-                            CapsuleMainItem(title: "Test \(idx)")
-                                .padding(.horizontal, 1)
-                        }
+//                        ForEach(1 ... 10, id: \.self) { _ in
+//                            CapsuleMainItem(capsule: )
+//                                .padding(.horizontal, 1)
+//                        }
                     }
                 }
             }

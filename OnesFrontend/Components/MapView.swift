@@ -26,17 +26,40 @@ struct Overlay: View {
 }
 
 struct MapView: View {
-    @State var coord: (Double, Double) = (126.99457310622, 37.611035490773)
+    @State var coord: (Double, Double) = (0, 0)
 
     @State var target: String = ""
 
     @State var addresses: [NaverLocalSearchResponseDTO.Item] = []
     @State var showSheet: Bool = false
 
+    @StateObject var locationManager = LocationManager()
+
+    init() {
+        coord = (
+            locationManager.lastLocation?.coordinate.longitude ?? 0,
+            locationManager.lastLocation?.coordinate.latitude ?? 0
+        )
+    }
+
+    var userLatitude: Double {
+        return locationManager.lastLocation?.coordinate.latitude ?? 0
+    }
+
+    var userLongitude: Double {
+        return locationManager.lastLocation?.coordinate.longitude ?? 0
+    }
+
     var body: some View {
         ZStack(alignment: .topTrailing) {
             UIMapView(coord: coord)
                 .edgesIgnoringSafeArea(.top)
+                .onTapGesture {
+                    let coord = NMGLatLng(lat: userLatitude, lng: userLongitude)
+                    let cameraUpdate = NMFCameraUpdate(scrollTo: coord)
+                    cameraUpdate.animationDuration = 1
+                    Global.default.mapView.mapView.moveCamera(cameraUpdate)
+                }
 
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
@@ -67,6 +90,12 @@ struct MapView: View {
             .presentationDetents([.medium])
             .presentationDragIndicator(.visible)
         })
+        .onChange(of: locationManager.lastLocation) { _, _ in
+            coord = (
+                locationManager.lastLocation?.coordinate.longitude ?? 0,
+                locationManager.lastLocation?.coordinate.latitude ?? 0
+            )
+        }
     }
 
     func getLatLng(target: String) {
@@ -133,12 +162,13 @@ struct UIMapView: UIViewRepresentable {
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
         let coord = NMGLatLng(lat: coord.1, lng: coord.0)
         let cameraUpdate = NMFCameraUpdate(scrollTo: coord)
+        Global.default.mapView = uiView
         cameraUpdate.animation = .fly
         cameraUpdate.animationDuration = 1
         uiView.mapView.moveCamera(cameraUpdate)
 
         let marker = NMFMarker()
-        marker.position = NMGLatLng(lat: 37.611035490773, lng: 126.99457310622)
+        marker.position = NMGLatLng(lat: self.coord.1, lng: self.coord.0)
         marker.mapView = uiView.mapView
     }
 }
