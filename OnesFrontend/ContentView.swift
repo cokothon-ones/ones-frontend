@@ -51,7 +51,7 @@ struct ContentView: View {
                             )
                     }
 
-                CapsuleItemFormView()
+                SettingView()
                     .tabItem {
                         Image(systemName: "gearshape.fill")
                         Text("설정")

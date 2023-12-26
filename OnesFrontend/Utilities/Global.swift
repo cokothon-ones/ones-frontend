@@ -13,4 +13,6 @@ final class Global {
     private init() {}
 
     var mapView: NMFNaverMapView = .init()
+
+    static let baseUrl = "https://localhost"
 }
