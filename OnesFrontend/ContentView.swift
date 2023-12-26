@@ -9,13 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+
+                NavigationLink {
+                    CapsuleItemFormView()
+                } label: {
+                    // 나중에 메인 화면에서 추가 버튼으로 옮겨 줄 것
+                    Image(systemName: "plus")
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
