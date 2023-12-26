@@ -45,13 +45,17 @@ struct CapsuleMainItem: View {
                             .offset(CGSize(width: isOpen ? 65 : 55, height: 35))
 
                         if !isOpen {
-                            Text("\(formatter.string(from: date))")
-                                .foregroundColor(.white)
-                                .font(.system(size: 24, weight: .bold))
-                                .padding(.vertical, 13)
-                                .padding(.horizontal, 28)
-                                .background(Color(red: 0.37, green: 0.48, blue: 0.68))
-                                .cornerRadius(66)
+                            NavigationLink {
+                                CapsuleItemFormView()
+                            } label: {
+                                Text("\(formatter.string(from: date))")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 24, weight: .bold))
+                                    .padding(.vertical, 13)
+                                    .padding(.horizontal, 28)
+                                    .background(Color(red: 0.37, green: 0.48, blue: 0.68))
+                                    .cornerRadius(66)
+                            }
                         } else {
                             HStack(spacing: 10) {
                                 Rectangle()
@@ -84,9 +88,13 @@ struct CapsuleMainItem: View {
                                     }
                             }
                             .overlay {
-                                Text("\(formatter.string(from: date))")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 24, weight: .bold))
+                                NavigationLink {
+                                    CapsuleItemDetailView()
+                                } label: {
+                                    Text("\(formatter.string(from: date))")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 24, weight: .bold))
+                                }
                             }
                         }
                     }

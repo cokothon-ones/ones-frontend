@@ -32,8 +32,7 @@ struct CapsuleItemFormView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("이미지")
                             .font(
-                                Font.custom("Pretendard", size: 20)
-                                    .weight(.bold)
+                                .system(size: 20, weight: .bold)
                             )
                             .padding(.bottom, 20)
 
@@ -60,7 +59,9 @@ struct CapsuleItemFormView: View {
                                         )
 
                                         Text("이미지 추가")
-                                            .font(Font.custom("Pretendard Variable", size: 16))
+                                            .font(
+                                                .system(size: 16)
+                                            )
                                             .multilineTextAlignment(.center)
                                             .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.1))
                                             .frame(width: 223, alignment: .top)
@@ -84,8 +85,7 @@ struct CapsuleItemFormView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("편지")
                             .font(
-                                Font.custom("Pretendard", size: 20)
-                                    .weight(.bold)
+                                .system(size: 20, weight: .bold)
                             )
                             .padding(.top, 24)
                             .padding(.bottom, 20)
@@ -142,8 +142,7 @@ struct CapsuleItemFormView: View {
 
                             Text("장소")
                                 .font(
-                                    Font.custom("Pretendard Variable", size: 20)
-                                        .weight(.semibold)
+                                    .system(size: 20, weight: .bold)
                                 )
                         }
                         .padding(.bottom, 10)
