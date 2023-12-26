@@ -12,6 +12,8 @@ struct MainView: View {
     @State var showModal: Bool = false
     @State var navigated: Bool = false
 
+    @State var showCapsuleCodeForm: Bool = false
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(spacing: 0) {
@@ -69,7 +71,7 @@ struct MainView: View {
 
                     Image(systemName: "rectangle.and.pencil.and.ellipsis")
                         .onTapGesture {
-                            // TODO: JOIN CAPSULE
+                            showCapsuleCodeForm = true
                         }
                 }
                 .font(.system(size: 20, weight: .semibold))
@@ -129,6 +131,22 @@ struct MainView: View {
                     })
                     .zIndex(11)
                     .padding(.horizontal, 10)
+                }
+            } else if showCapsuleCodeForm {
+                ZStack {
+                    Color(.black)
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.4)
+                        .zIndex(10)
+                        .onTapGesture {
+                            showCapsuleCodeForm = false
+                        }
+
+                    EnterCapsuleView(onCancel: {
+                        showCapsuleCodeForm = false
+                    }, onConfirm: { showCapsuleCodeForm = false })
+                        .zIndex(11)
+                        .padding(.horizontal, 10)
                 }
             }
         }
