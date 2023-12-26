@@ -11,18 +11,28 @@ struct CapsuleMainItem: View {
     var title: String
 
     var body: some View {
-        ZStack {
+        HStack(spacing: 0) {
             Text(title)
-                .foregroundColor(Color(0xFDFDFD))
-                .frame(
-                    width: (UIScreen.main.bounds.size.width - 50) / 2,
-                    height: (UIScreen.main.bounds.size.width - 50) / 2
-                )
+            Spacer()
         }
-        .background {
-            Color.random
-        }
+        .frame(height: 50)
+        .foregroundColor(Color(0x646464))
+        .padding(.vertical, 5)
+        .padding(.horizontal, 10)
+        .background(LinearGradient(colors: [Color(0xFDFDFD)], startPoint: .leading, endPoint: .trailing))
         .cornerRadius(10)
+        .overlay(content: {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(
+                    LinearGradient(
+                        colors: [Color(0xD2D7FF), Color(0xAAD7FF)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 1
+                )
+        })
+        .padding(.vertical, 1)
     }
 }
 

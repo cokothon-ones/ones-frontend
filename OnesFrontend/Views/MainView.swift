@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @State var isSelected: Bool = true
-    private let column = [GridItem(.flexible(), spacing: 20),
-                          GridItem(.flexible(), spacing: 20)]
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -62,17 +60,20 @@ struct MainView: View {
                 }
                 .background(Color.white)
 
+                Spacer(minLength: 5)
+
                 ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: column, spacing: 5) {
-                        ForEach(1 ... 10, id: \.self) { _ in
+                    LazyVStack(spacing: 10) {
+                        ForEach(1 ... 10, id: \.self) { idx in
+                            CapsuleMainItem(title: "Test \(idx)")
+                                .padding(.horizontal, 1)
                         }
                     }
-                    .padding(.horizontal, 10)
                 }
             }
             .padding(.horizontal, 20)
 
-            Image(systemName: "plus.circle.fill")
+            Image("add-button")
                 .padding(15)
                 .onTapGesture {
                     // TODO: NAVIGATE TO ADD VIEW
