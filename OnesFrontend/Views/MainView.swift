@@ -62,7 +62,13 @@ struct MainView: View {
 
                     Text("6개")
                         .foregroundColor(Color(red: 0.37, green: 0.48, blue: 0.68))
+
                     Spacer()
+
+                    Image(systemName: "rectangle.portrait.and.arrow.forward")
+                        .onTapGesture {
+                            // TODO: JOIN CAPSULE
+                        }
                 }
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.top, 24)
