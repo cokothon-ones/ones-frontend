@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13474C602B3B606000EC7B6F /* CreateCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13474C5F2B3B606000EC7B6F /* CreateCapsuleView.swift */; };
 		1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBD52B3ABB8E009DEBA4 /* OnesFrontendApp.swift */; };
 		1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBD72B3ABB8E009DEBA4 /* ContentView.swift */; };
 		1350FBDA2B3ABB90009DEBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FBD92B3ABB90009DEBA4 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13474C5F2B3B606000EC7B6F /* CreateCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCapsuleView.swift; sourceTree = "<group>"; };
 		1350FBD22B3ABB8E009DEBA4 /* OnesFrontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnesFrontend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1350FBD52B3ABB8E009DEBA4 /* OnesFrontendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnesFrontendApp.swift; sourceTree = "<group>"; };
 		1350FBD72B3ABB8E009DEBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				1354898F2B3B064800F6DB4C /* CapsuleItemFormView.swift */,
 				135489912B3B065C00F6DB4C /* ImagePickerView.swift */,
 				135489932B3B066D00F6DB4C /* LetterFormView.swift */,
+				13474C5F2B3B606000EC7B6F /* CreateCapsuleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				135489922B3B065C00F6DB4C /* ImagePickerView.swift in Sources */,
 				1350FBF22B3ABD4B009DEBA4 /* MainView.swift in Sources */,
 				135489902B3B064800F6DB4C /* CapsuleItemFormView.swift in Sources */,
+				13474C602B3B606000EC7B6F /* CreateCapsuleView.swift in Sources */,
 				1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

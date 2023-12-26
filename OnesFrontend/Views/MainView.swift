@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @State var isSelected: Bool = true
+    @State var showModal: Bool = false
+    @State var navigated: Bool = false
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -90,22 +92,44 @@ struct MainView: View {
                 }
             }
 
-            NavigationLink {
-                CapsuleItemFormView()
-            } label: {
-                HStack(alignment: .center, spacing: 15) {
-                    Image(systemName: "plus")
-                    Text("새 캡슐 만들기")
-                        .font(.system(size: 16, weight: .bold))
+            HStack(alignment: .center, spacing: 15) {
+                Image(systemName: "plus")
+                Text("새 캡슐 만들기")
+                    .font(.system(size: 16, weight: .bold))
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 16)
+            .foregroundColor(.white)
+            .background {
+                Color.black
+                    .cornerRadius(12)
+            }
+            .padding([.trailing, .bottom], 20)
+            .onTapGesture {
+                showModal = true
+            }
+
+            NavigationLink("", destination: CapsuleItemFormView(), isActive: $navigated)
+
+            if showModal {
+                ZStack {
+                    Color(.black)
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.4)
+                        .zIndex(10)
+                        .onTapGesture {
+                            showModal = false
+                        }
+
+                    CreateCapsuleView(onCancel: { showModal = false }, onConfirm: {
+                        showModal = false
+
+                        // TODO: REQUEST CREATE CAPSULE
+                        navigated = true // IF SUCCESS
+                    })
+                    .zIndex(11)
+                    .padding(.horizontal, 10)
                 }
-                .padding(.vertical, 10)
-                .padding(.horizontal, 16)
-                .foregroundColor(.white)
-                .background {
-                    Color.black
-                        .cornerRadius(12)
-                }
-                .padding([.trailing, .bottom], 20)
             }
         }
     }
