@@ -26,13 +26,15 @@ final class LocationService {
 
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
+            "Set-Cookie": Global.default.sid
         ]
 
         AF.request(
             Global.baseUrl + "/capsule/auth",
             method: .patch,
             parameters: locationAuthRequestDTO,
-            encoder: JSONParameterEncoder()
+            encoder: JSONParameterEncoder(),
+            headers: headers
         ).response { result in
             switch result.result {
             case .success(let success):

@@ -14,8 +14,10 @@ final class Global {
 
     var mapView: NMFNaverMapView = .init()
 
-    static let baseUrl = "https://localhost"
+    static let baseUrl = "http://10.223.118.56:3000"
 
-    var user: User
-    var capsules: Capsules
+    var user: User = .init(id: 1234, email: "test1@test.com", password: "1234")
+    var capsules: Capsules = .init(items: [])
+
+    var sid: String = ""
 }

@@ -13,5 +13,5 @@ struct Constants {
     static let dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.iso8601
 
     // 서버에서 받기
-    static let baseURL = "https://api.23haru.com/v1/"
+    static let baseURL = "http://10.223.118.56:3000"
 }

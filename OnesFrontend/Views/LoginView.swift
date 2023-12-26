@@ -82,7 +82,7 @@ struct LoginView: View {
         .onTapGesture {
             let parameters: Parameters = [
                 "email": email,
-                "password": password,
+                "password": password
             ]
 
             AF.request(
@@ -90,15 +90,35 @@ struct LoginView: View {
                 method: .post,
                 parameters: parameters,
                 encoding: JSONEncoding.default
-            ).responseDecodable(of: LoginResponseDTO.self) { response in
-                switch response.result {
-                case let .success(response):
+            ).response { result in
+                if var cookie = result.response?.headers["Set-Cookie"],
+                   var sid = extractConnectSID(from: cookie)
+                {
+                    Global.default.sid = sid
                     dismissAction.callAsFunction()
-                case let .failure(error):
-                    print(error)
                 }
             }
         }
+    }
+
+    func extractConnectSID(from cookieString: String) -> String? {
+        let pattern = "connect\\.sid=([^;]+)"
+
+        do {
+            let regex = try NSRegularExpression(pattern: pattern)
+            let matches = regex.matches(in: cookieString, range: NSRange(cookieString.startIndex..., in: cookieString))
+
+            if let match = matches.first {
+                let range = match.range(at: 1)
+                if let swiftRange = Range(range, in: cookieString) {
+                    return String(cookieString[swiftRange])
+                }
+            }
+        } catch {
+            print("Error extracting connect.sid: \(error)")
+        }
+
+        return nil
     }
 }
 

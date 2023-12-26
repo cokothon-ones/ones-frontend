@@ -8,11 +8,23 @@
 import Alamofire
 import Foundation
 
-final class CapsuleRoomService {
+struct CapsuleRoomService {
     private static let encoder: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = Constants.dateEncodingStrategy
         return encoder
+    }()
+
+    private static let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = Constants.dateFormat
+        return formatter
+    }()
+
+    private static let decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(Self.formatter)
+        return decoder
     }()
 
     public static func createCapsuleRoom(
@@ -26,6 +38,7 @@ final class CapsuleRoomService {
 
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
+            "Set-Cookie": Global.default.sid,
         ]
 
         AF.request(
@@ -55,18 +68,14 @@ final class CapsuleRoomService {
 
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
-        ]
-
-        let parameters: Parameters = [
-            "userId": userId,
+            "Set-Cookie": Global.default.sid,
         ]
 
         AF.request(
             Constants.baseURL + "/capsule",
             method: .get,
-            parameters: parameters,
             headers: headers
-        ).responseDecodable(of: FetchCapsuleResponseDTO.self) { response in
+        ).responseDecodable(of: FetchCapsuleResponseDTO.self, decoder: self.decoder) { response in
             switch response.result {
             case let .success(response):
                 var array: [Capsule] = []
