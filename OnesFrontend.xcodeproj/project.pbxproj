@@ -11,6 +11,10 @@
 		1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBD72B3ABB8E009DEBA4 /* ContentView.swift */; };
 		1350FBDA2B3ABB90009DEBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FBD92B3ABB90009DEBA4 /* Assets.xcassets */; };
 		1350FBDD2B3ABB90009DEBA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FBDC2B3ABB90009DEBA4 /* Preview Assets.xcassets */; };
+		1350FBF22B3ABD4B009DEBA4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBF12B3ABD4B009DEBA4 /* MainView.swift */; };
+		1350FBF52B3ABE81009DEBA4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBF42B3ABE81009DEBA4 /* Color.swift */; };
+		1350FBF72B3AC30C009DEBA4 /* CapsuleMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */; };
+		354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,13 @@
 		1350FBEE2B3ABC4A009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1350FBEF2B3ABC51009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1350FBF02B3ABC59009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBF12B3ABD4B009DEBA4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1350FBF42B3ABE81009DEBA4 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleMainItem.swift; sourceTree = "<group>"; };
+		1350FBF82B3ADAAD009DEBA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		251A25B0823A4896651245AA /* Pods-OnesFrontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.debug.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.debug.xcconfig"; sourceTree = "<group>"; };
+		25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnesFrontend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A8DB66E258A6F80C83F776 /* Pods-OnesFrontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.release.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +44,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05311679B43EC2DFCFC838E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1350FBC92B3ABB8E009DEBA4 = {
 			isa = PBXGroup;
 			children = (
 				1350FBD42B3ABB8E009DEBA4 /* OnesFrontend */,
 				1350FBD32B3ABB8E009DEBA4 /* Products */,
+				4788E1B505042E2010FB66DC /* Pods */,
+				05311679B43EC2DFCFC838E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +80,8 @@
 		1350FBD42B3ABB8E009DEBA4 /* OnesFrontend */ = {
 			isa = PBXGroup;
 			children = (
+				1350FBF82B3ADAAD009DEBA4 /* Info.plist */,
+				1350FBF32B3ABE76009DEBA4 /* Extensions */,
 				1350FBE82B3ABC08009DEBA4 /* Views */,
 				1350FBE72B3ABC00009DEBA4 /* ViewModels */,
 				1350FBE62B3ABBF7009DEBA4 /* Utilities */,
@@ -84,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				1350FBF02B3ABC59009DEBA4 /* README.md */,
+				1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -125,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				1350FBEA2B3ABC29009DEBA4 /* README.md */,
+				1350FBF12B3ABD4B009DEBA4 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +163,23 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		1350FBF32B3ABE76009DEBA4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBF42B3ABE81009DEBA4 /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4788E1B505042E2010FB66DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				251A25B0823A4896651245AA /* Pods-OnesFrontend.debug.xcconfig */,
+				94A8DB66E258A6F80C83F776 /* Pods-OnesFrontend.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1350FBE02B3ABB90009DEBA4 /* Build configuration list for PBXNativeTarget "OnesFrontend" */;
 			buildPhases = (
+				56CE622AE263829E170309A3 /* [CP] Check Pods Manifest.lock */,
 				1350FBCE2B3ABB8E009DEBA4 /* Sources */,
 				1350FBCF2B3ABB8E009DEBA4 /* Frameworks */,
 				1350FBD02B3ABB8E009DEBA4 /* Resources */,
+				36CB41EB8D43F85644F967F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,12 +247,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36CB41EB8D43F85644F967F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56CE622AE263829E170309A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OnesFrontend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1350FBCE2B3ABB8E009DEBA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */,
+				1350FBF52B3ABE81009DEBA4 /* Color.swift in Sources */,
+				1350FBF72B3AC30C009DEBA4 /* CapsuleMainItem.swift in Sources */,
+				1350FBF22B3ABD4B009DEBA4 /* MainView.swift in Sources */,
 				1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +426,7 @@
 		};
 		1350FBE12B3ABB90009DEBA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 251A25B0823A4896651245AA /* Pods-OnesFrontend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -343,7 +434,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnesFrontend/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnesFrontend/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,6 +458,7 @@
 		};
 		1350FBE22B3ABB90009DEBA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94A8DB66E258A6F80C83F776 /* Pods-OnesFrontend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -371,7 +466,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnesFrontend/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OnesFrontend/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
