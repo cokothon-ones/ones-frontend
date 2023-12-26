@@ -78,6 +78,8 @@ struct MainView: View {
                         CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
                         CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
                         CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
+
+                        Spacer(minLength: 70)
                     }
                 }
             }
