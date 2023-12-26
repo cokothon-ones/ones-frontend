@@ -26,6 +26,8 @@ struct Overlay: View {
 }
 
 struct MapView: View {
+    @State var coord: (Double, Double) = (126.99457310622, 37.611035490773)
+
     @State var target: String = ""
 
     @State var addresses: [NaverLocalSearchResponseDTO.Item] = []
@@ -33,20 +35,20 @@ struct MapView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            UIMapView()
+            UIMapView(coord: coord)
                 .edgesIgnoringSafeArea(.top)
 
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     TextField(text: $target) {
-                        Text("주소를 입력해주세요.")
+                        Text("장소를 입력해주세요.")
                     }
                     Spacer()
                     Image(systemName: "magnifyingglass")
                         .scaleEffect(1.5)
                         .padding()
                         .onTapGesture {
-                            requestGeo()
+                            searchLocation()
                         }
                 }
                 .padding(.leading, 10)
@@ -60,14 +62,39 @@ struct MapView: View {
         }
         .sheet(isPresented: $showSheet, content: {
             Overlay(showSheet: $showSheet, addresses: $addresses, completion: { item in
-                print(item)
+                getLatLng(target: item.roadAddress)
             })
             .presentationDetents([.medium])
             .presentationDragIndicator(.visible)
         })
     }
 
-    func requestGeo() {
+    func getLatLng(target: String) {
+        let headers: HTTPHeaders = [
+            "X-NCP-APIGW-API-KEY-ID": "a4zoszni76",
+            "X-NCP-APIGW-API-KEY": "GGtlCdUvKFhTI9iBiMrrj9x0Tb8VLCbpjw04dl0d"
+        ]
+
+        AF.request(
+            "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=\(target)",
+            method: .get,
+            headers: headers
+        ).responseDecodable(of: NaverGeoCodeResponseDTO.self, decoder: JSONDecoder()) { response in
+            switch response.result {
+            case let .success(response):
+                if let item = response.addresses.first,
+                   let x = Double(item.x),
+                   let y = Double(item.y)
+                {
+                    coord = (x, y)
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+
+    func searchLocation() {
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": "j2WnsPrVKWUAnOqiJUZw",
             "X-Naver-Client-Secret": "BdqfsZo2Qj"
@@ -81,6 +108,7 @@ struct MapView: View {
             switch response.result {
             case let .success(response):
                 // 국민대학교
+                // 숙명여대
                 // 솔샘로 44
                 self.addresses = response.items
                 showSheet = true
@@ -92,24 +120,27 @@ struct MapView: View {
 }
 
 struct UIMapView: UIViewRepresentable {
+    var coord: (Double, Double)
+
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
         view.showZoomControls = false
         view.mapView.positionMode = .direction
         view.mapView.zoomLevel = 13
-
-        let marker = NMFMarker()
-        marker.position = NMGLatLng(lat: 37.611035490773, lng: 126.99457310622)
-        marker.mapView = view.mapView
-        marker.iconImage = NMFOverlayImage(name: "orem")
-        marker.iconTintColor = UIColor.red
-        marker.width = 25
-        marker.height = 40
-
         return view
     }
 
-    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {}
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
+        let coord = NMGLatLng(lat: coord.1, lng: coord.0)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: coord)
+        cameraUpdate.animation = .fly
+        cameraUpdate.animationDuration = 1
+        uiView.mapView.moveCamera(cameraUpdate)
+
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: 37.611035490773, lng: 126.99457310622)
+        marker.mapView = uiView.mapView
+    }
 }
 
 #Preview {

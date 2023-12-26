@@ -22,9 +22,9 @@ struct MainView: View {
                     .padding(.horizontal, 10)
                 }
             }
-            .padding(20)
+            .padding(.horizontal, 20)
 
-            Image("add-button")
+            Image(systemName: "plus.circle.fill")
                 .padding(15)
                 .onTapGesture {
                     // TODO: NAVIGATE TO ADD VIEW
