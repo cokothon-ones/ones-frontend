@@ -14,16 +14,9 @@ struct MainView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(spacing: 0) {
-                HStack {
-                    Text("Time Capsules")
-                        .font(.system(size: 20, weight: .bold))
-                }
-                .padding(.bottom, 10)
-
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: column, spacing: 5) {
-                        ForEach(1 ... 10, id: \.self) { idx in
-                            CapsuleMainItem(title: "Test \(idx)")
+                        ForEach(1 ... 10, id: \.self) { _ in
                         }
                     }
                     .padding(.horizontal, 10)

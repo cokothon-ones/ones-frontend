@@ -14,6 +14,10 @@
 		1350FBF22B3ABD4B009DEBA4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBF12B3ABD4B009DEBA4 /* MainView.swift */; };
 		1350FBF52B3ABE81009DEBA4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBF42B3ABE81009DEBA4 /* Color.swift */; };
 		1350FBF72B3AC30C009DEBA4 /* CapsuleMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */; };
+		1354897A2B3AE29800F6DB4C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489792B3AE29800F6DB4C /* MapView.swift */; };
+		1354897D2B3AEB2E00F6DB4C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1354897C2B3AEB2E00F6DB4C /* Alamofire */; };
+		1354897F2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354897E2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift */; };
+		135489812B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489802B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift */; };
 		354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +38,9 @@
 		1350FBF42B3ABE81009DEBA4 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleMainItem.swift; sourceTree = "<group>"; };
 		1350FBF82B3ADAAD009DEBA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		135489792B3AE29800F6DB4C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1354897E2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeoCodeResponseDTO.swift; sourceTree = "<group>"; };
+		135489802B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverLocalSearchResponseDTO.swift; sourceTree = "<group>"; };
 		251A25B0823A4896651245AA /* Pods-OnesFrontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.debug.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.debug.xcconfig"; sourceTree = "<group>"; };
 		25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnesFrontend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A8DB66E258A6F80C83F776 /* Pods-OnesFrontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.release.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */,
+				1354897D2B3AEB2E00F6DB4C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +117,7 @@
 			children = (
 				1350FBF02B3ABC59009DEBA4 /* README.md */,
 				1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */,
+				135489792B3AE29800F6DB4C /* MapView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -159,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				1350FBEF2B3ABC51009DEBA4 /* README.md */,
+				1354897E2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift */,
+				135489802B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -198,6 +209,9 @@
 			dependencies = (
 			);
 			name = OnesFrontend;
+			packageProductDependencies = (
+				1354897C2B3AEB2E00F6DB4C /* Alamofire */,
+			);
 			productName = OnesFrontend;
 			productReference = 1350FBD22B3ABB8E009DEBA4 /* OnesFrontend.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 1350FBC92B3ABB8E009DEBA4;
+			packageReferences = (
+				1354897B2B3AEB2D00F6DB4C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 1350FBD32B3ABB8E009DEBA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,8 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */,
+				1354897A2B3AE29800F6DB4C /* MapView.swift in Sources */,
 				1350FBF52B3ABE81009DEBA4 /* Color.swift in Sources */,
+				1354897F2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift in Sources */,
 				1350FBF72B3AC30C009DEBA4 /* CapsuleMainItem.swift in Sources */,
+				135489812B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift in Sources */,
 				1350FBF22B3ABD4B009DEBA4 /* MainView.swift in Sources */,
 				1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */,
 			);
@@ -510,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1354897B2B3AEB2D00F6DB4C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1354897C2B3AEB2E00F6DB4C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1354897B2B3AEB2D00F6DB4C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1350FBCA2B3ABB8E009DEBA4 /* Project object */;
 }
