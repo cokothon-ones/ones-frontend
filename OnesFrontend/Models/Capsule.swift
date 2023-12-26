@@ -16,6 +16,22 @@ struct Capsule: Identifiable, Codable {
     let longitude: Double
     let createdAt: Date
 
+    func getDDay() -> Int {
+        let formatter: DateFormatter = .init()
+        formatter.dateFormat = "yyyyMMdd"
+
+        let todayString = formatter.string(from: Date.now)
+        let targetString = formatter.string(from: self.date)
+
+        guard let today = formatter.date(from: todayString),
+              let target = formatter.date(from: targetString)
+        else {
+            return -1
+        }
+
+        return Int(target.timeIntervalSince(today)) / (60 * 60 * 24)
+    }
+
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.id, forKey: .id)

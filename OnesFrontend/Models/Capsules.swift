@@ -9,7 +9,7 @@ import Foundation
 import NMapsMap
 
 class Capsules {
-    private var items: [Capsule] = []
+    var items: [Capsule] = []
 
     init(items: [Capsule]) {
         self.items = items

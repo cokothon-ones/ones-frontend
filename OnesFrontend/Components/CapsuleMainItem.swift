@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CapsuleMainItem: View {
-    var title: String
+    var capsule: Capsule
 
     var body: some View {
         HStack(spacing: 0) {
-            Text(title)
+            Text(capsule.title)
             Spacer()
         }
         .frame(height: 50)
@@ -34,8 +34,4 @@ struct CapsuleMainItem: View {
         })
         .padding(.vertical, 1)
     }
-}
-
-#Preview {
-    CapsuleMainItem(title: "TEST CAPSULE")
 }
