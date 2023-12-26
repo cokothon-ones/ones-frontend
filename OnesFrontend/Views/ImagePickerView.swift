@@ -10,7 +10,7 @@ import Photos
 import PhotosUI
 import SwiftUI
 
-struct PopupImagePicker: View {
+struct ImagePickerView: View {
     @Environment(\.dismiss) var dismissAction
     @StateObject var imagePickerModel: ImagePickerViewModel = .init()
 

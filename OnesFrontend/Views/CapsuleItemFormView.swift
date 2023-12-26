@@ -102,12 +102,12 @@ struct CapsuleItemFormView: View {
         }
         .padding(20)
         .fullScreenCover(isPresented: $openPhoto, content: {
-            PopupImagePicker { assets in
+            ImagePickerView { assets in
                 onSelect(assets: assets)
             }
         })
         .fullScreenCover(isPresented: $openLetter, content: {
-            
+            LetterFormView()
         })
     }
 
