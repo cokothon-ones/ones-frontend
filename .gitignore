@@ -2,3 +2,7 @@
 
 OnesFrontend.xcodeproj/project.xcworkspace/xcuserdata
 OnesFrontend.xcodeproj/xcuserdata
+
+OnesFrontend.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+OnesFrontend.xcworkspace/xcuserdata/*
+Pods/Pods.xcodeproj/xcuserdata/*
