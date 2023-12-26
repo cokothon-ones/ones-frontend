@@ -127,6 +127,9 @@ struct MainView: View {
                         showModal = false
 
                         // TODO: REQUEST CREATE CAPSULE
+                        CapsuleRoomService.fetchCapsules(userId: Global.default.user.id) { response in
+                            Global.default.capsules = response
+                        }
                         navigated = true // IF SUCCESS
                     })
                     .zIndex(11)
@@ -144,9 +147,14 @@ struct MainView: View {
 
                     EnterCapsuleView(onCancel: {
                         showCapsuleCodeForm = false
-                    }, onConfirm: { showCapsuleCodeForm = false })
-                        .zIndex(11)
-                        .padding(.horizontal, 10)
+                    }, onConfirm: {
+                        CapsuleRoomService.fetchCapsules(userId: Global.default.user.id) { response in
+                            Global.default.capsules = response
+                        }
+                        showCapsuleCodeForm = false
+                    })
+                    .zIndex(11)
+                    .padding(.horizontal, 10)
                 }
             }
         }

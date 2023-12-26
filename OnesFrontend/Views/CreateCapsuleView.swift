@@ -190,7 +190,11 @@ struct CreateCapsuleView: View {
                     .background(Color(red: 0.37, green: 0.47, blue: 0.68))
                     .cornerRadius(12)
                     .onTapGesture {
-                        onConfirm()
+                        CapsuleRoomService.createCapsuleRoom(capsuleRoomRequestDTO: CapsuleRoomRequestDTO(
+                            title: capsuleTitle, date: now, location: location, latitude: coord.1, longitude: coord.0
+                        )) { code in
+                            onConfirm()
+                        }
                     }
                 }
                 .padding(.bottom, 24)

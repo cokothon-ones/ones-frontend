@@ -12,9 +12,10 @@ struct Capsule: Identifiable, Codable {
     let title: String
     let date: Date
     let location: String
+    let code: String
     let latitude: Double
     let longitude: Double
-    let createdAt: Date
+    let createdAt: Date?
 
     func getDDay() -> Int {
         let formatter: DateFormatter = .init()
@@ -38,6 +39,7 @@ struct Capsule: Identifiable, Codable {
         try container.encode(self.title, forKey: .title)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.location, forKey: .location)
+        try container.encode(self.code, forKey: .code)
         try container.encode(self.latitude, forKey: .latitude)
         try container.encode(self.longitude, forKey: .longitude)
         try container.encode(self.createdAt, forKey: .createdAt)
@@ -49,15 +51,17 @@ struct Capsule: Identifiable, Codable {
         case date
         case location
         case latitude
+        case code
         case longitude
         case createdAt = "created_at"
     }
 
-    init(id: Int, title: String, date: Date, location: String, latitude: Double, longitude: Double, createdAt: Date) {
+    init(id: Int, title: String, date: Date, location: String, code: String, latitude: Double, longitude: Double, createdAt: Date?) {
         self.id = id
         self.title = title
         self.date = date
         self.location = location
+        self.code = code
         self.latitude = latitude
         self.longitude = longitude
         self.createdAt = createdAt
@@ -69,6 +73,7 @@ struct Capsule: Identifiable, Codable {
         self.title = try container.decode(String.self, forKey: .title)
         self.date = try container.decode(Date.self, forKey: .date)
         self.location = try container.decode(String.self, forKey: .location)
+        self.code = try container.decode(String.self, forKey: .code)
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
         self.createdAt = try container.decode(Date.self, forKey: .createdAt)

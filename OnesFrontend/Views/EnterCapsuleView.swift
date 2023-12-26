@@ -5,6 +5,7 @@
 //  Created by 최정민 on 12/27/23.
 //
 
+import Alamofire
 import SwiftUI
 
 struct EnterCapsuleView: View {
@@ -62,7 +63,18 @@ struct EnterCapsuleView: View {
                 .background(Color(red: 0.37, green: 0.47, blue: 0.68))
                 .cornerRadius(12)
                 .onTapGesture {
-                    onConfirm()
+                    let parameters: Parameters = [
+                        "code": self.code
+                    ]
+
+                    AF.request(
+                        Global.baseUrl + "/member",
+                        method: .post,
+                        parameters: parameters,
+                        encoding: JSONEncoding()
+                    ).response { _ in
+                        onConfirm()
+                    }
                 }
             }
         }

@@ -10,7 +10,7 @@ import Foundation
 struct FetchCapsuleResponseDTO: Codable {
     let status: Int
     let message: String
-    let data: Data
+    let data: [Data]
 
     struct Data: Codable {
         let id: Int
