@@ -17,6 +17,12 @@ struct CapsuleItemFormView: View {
     @State var image: UIImage? = nil
     @State var isProgress: Bool = false
 
+    @State var location: String = ""
+
+    @State var showSheet: Bool = false
+    @State var addresses: [NaverLocalSearchResponseDTO.Item] = []
+    @State var coord: (Double, Double) = (0, 0) // post시 위도, 경도
+
     var rows: [GridItem] = Array(repeating: .init(.fixed(50)), count: 1)
 
     var body: some View {
@@ -143,8 +149,15 @@ struct CapsuleItemFormView: View {
                         .padding(.bottom, 10)
 
                         HStack(alignment: .center, spacing: 24) {
-                            Text("성북구 정릉동 국민대학교")
+                            TextField("장소를 입력하세요.", text: $location)
                             Spacer()
+                            Image(systemName: "magnifyingglass")
+                                .onTapGesture {
+                                    searchLocation(target: self.location) { response in
+                                        self.addresses = response
+                                        self.showSheet = true
+                                    }
+                                }
                         }
                         .padding(16)
                         .frame(width: 343, alignment: .center)
@@ -158,6 +171,16 @@ struct CapsuleItemFormView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showSheet, content: {
+                Overlay(showSheet: $showSheet, addresses: $addresses, completion: { item in
+                    getLatLng(target: item.roadAddress) { x, y in
+                        coord = (x, y)
+                        self.location = item.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                    }
+                })
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+            })
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

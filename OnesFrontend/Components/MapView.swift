@@ -71,21 +71,31 @@ struct MapView: View {
                         .scaleEffect(1.5)
                         .padding()
                         .onTapGesture {
-                            searchLocation()
+                            print("tap")
+                            searchLocation(target: target) { result in
+                                self.addresses = result
+                                showSheet = true
+                            }
                         }
                 }
                 .padding(.leading, 10)
-                .background {
-                    Color(.white)
-                }
+                .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+                .cornerRadius(5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .inset(by: 0.5)
+                        .stroke(Color(red: 0.84, green: 0.84, blue: 0.82),
+                                lineWidth: 1)
+                )
                 .frame(height: 50)
-                .cornerRadius(15)
             }
             .padding(20)
         }
         .sheet(isPresented: $showSheet, content: {
             Overlay(showSheet: $showSheet, addresses: $addresses, completion: { item in
-                getLatLng(target: item.roadAddress)
+                getLatLng(target: item.roadAddress) { x, y in
+                    coord = (x, y)
+                }
             })
             .presentationDetents([.medium])
             .presentationDragIndicator(.visible)
@@ -95,55 +105,6 @@ struct MapView: View {
                 locationManager.lastLocation?.coordinate.longitude ?? 0,
                 locationManager.lastLocation?.coordinate.latitude ?? 0
             )
-        }
-    }
-
-    func getLatLng(target: String) {
-        let headers: HTTPHeaders = [
-            "X-NCP-APIGW-API-KEY-ID": "a4zoszni76",
-            "X-NCP-APIGW-API-KEY": "GGtlCdUvKFhTI9iBiMrrj9x0Tb8VLCbpjw04dl0d"
-        ]
-
-        AF.request(
-            "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=\(target)",
-            method: .get,
-            headers: headers
-        ).responseDecodable(of: NaverGeoCodeResponseDTO.self, decoder: JSONDecoder()) { response in
-            switch response.result {
-            case let .success(response):
-                if let item = response.addresses.first,
-                   let x = Double(item.x),
-                   let y = Double(item.y)
-                {
-                    coord = (x, y)
-                }
-            case let .failure(error):
-                print(error)
-            }
-        }
-    }
-
-    func searchLocation() {
-        let headers: HTTPHeaders = [
-            "X-Naver-Client-Id": "j2WnsPrVKWUAnOqiJUZw",
-            "X-Naver-Client-Secret": "BdqfsZo2Qj"
-        ]
-
-        AF.request(
-            "https://openapi.naver.com/v1/search/local.json?query=\(target)&display=10&start=1&sort=random",
-            method: .get,
-            headers: headers
-        ).responseDecodable(of: NaverLocalSearchResponseDTO.self, decoder: JSONDecoder()) { response in
-            switch response.result {
-            case let .success(response):
-                // 국민대학교
-                // 숙명여대
-                // 솔샘로 44
-                self.addresses = response.items
-                showSheet = true
-            case let .failure(error):
-                print(error)
-            }
         }
     }
 }

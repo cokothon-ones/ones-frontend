@@ -17,8 +17,9 @@ struct MainView: View {
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         Text("잠김")
+                            .bold()
                             .frame(width: 175)
-                            .foregroundColor(self.isSelected ? Color(0x1DAFFF) : Color(0xACACAC))
+                            .foregroundColor(self.isSelected ? Color(0x191919) : Color(0xacacac))
                             .onTapGesture {
                                 withAnimation {
                                     self.isSelected = true
@@ -26,8 +27,9 @@ struct MainView: View {
                             }
 
                         Text("열림")
+                            .bold()
                             .frame(width: 175)
-                            .foregroundColor(self.isSelected ? Color(0xACACAC) : Color(0x1DAFFF))
+                            .foregroundColor(self.isSelected ? Color(0xacacac) : Color(0x191919))
                             .onTapGesture {
                                 withAnimation {
                                     self.isSelected = false
@@ -41,20 +43,12 @@ struct MainView: View {
 
                     ZStack(alignment: .leading) {
                         Rectangle()
-                            .fill(.clear)
-                            .frame(width: 175 * 2, height: 4)
+                            .fill(Color(red: 0.78, green: 0.78, blue: 0.8))
+                            .frame(width: 175 * 2, height: 2)
 
                         Rectangle()
-                            .fill(RadialGradient(
-                                colors: [
-                                    Color(0xAAD7FF),
-                                    Color(0xD2D7FF)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: 90
-                            ))
-                            .frame(width: 175, height: 4)
+                            .fill(Color(0x191919))
+                            .frame(width: 175, height: 2)
                             .offset(x: self.isSelected ? 0 : 175)
                     }
                 }
@@ -62,27 +56,57 @@ struct MainView: View {
 
                 Spacer(minLength: 5)
 
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 10) {
-                        ForEach(1 ... 10, id: \.self) { _ in
-//                            CapsuleMainItem(capsule: )
-//                                .padding(.horizontal, 1)
-                            NavigationLink {
-                                CapsuleItemFormView()
-                            } label: {
-                                Text("타임 캡슐")
-                            }
+                HStack(alignment: .center, spacing: 5) {
+                    Text("잠긴 캡슐")
+                        .foregroundColor(Color(0x191919))
+
+                    Text("6개")
+                        .foregroundColor(Color(red: 0.37, green: 0.48, blue: 0.68))
+
+                    Spacer()
+
+                    Image(systemName: "rectangle.and.pencil.and.ellipsis")
+                        .onTapGesture {
+                            // TODO: JOIN CAPSULE
                         }
+                }
+                .font(.system(size: 20, weight: .semibold))
+                .padding(.top, 24)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 5)
+
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(spacing: 29) {
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
+                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
+
+                        Spacer(minLength: 70)
                     }
                 }
             }
-            .padding(.horizontal, 20)
 
-            Image("add-button")
-                .padding(15)
-                .onTapGesture {
-                    // TODO: NAVIGATE TO ADD VIEW
+            NavigationLink {
+                CapsuleItemFormView()
+            } label: {
+                HStack(alignment: .center, spacing: 15) {
+                    Image(systemName: "plus")
+                    Text("새 캡슐 만들기")
+                        .font(.system(size: 16, weight: .bold))
                 }
+                .padding(.vertical, 10)
+                .padding(.horizontal, 16)
+                .foregroundColor(.white)
+                .background {
+                    Color.black
+                        .cornerRadius(12)
+                }
+                .padding([.trailing, .bottom], 20)
+            }
         }
     }
 }

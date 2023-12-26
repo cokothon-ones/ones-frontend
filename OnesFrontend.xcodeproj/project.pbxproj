@@ -32,6 +32,9 @@
 		1354899A2B3B2B4900F6DB4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489992B3B2B4900F6DB4C /* User.swift */; };
 		135489A02B3B3AAC00F6DB4C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354899F2B3B3AAC00F6DB4C /* LocationManager.swift */; };
 		135489A22B3B3E1900F6DB4C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489A12B3B3E1900F6DB4C /* Global.swift */; };
+		135489A52B3B542000F6DB4C /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 135489A42B3B542000F6DB4C /* SwiftUIIntrospect */; };
+		135489A72B3B542000F6DB4C /* SwiftUIIntrospect-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 135489A62B3B542000F6DB4C /* SwiftUIIntrospect-Dynamic */; };
+		135489A92B3B542000F6DB4C /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 135489A82B3B542000F6DB4C /* SwiftUIIntrospect-Static */; };
 		354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */; };
 		6FADA8822B3B336500750140 /* FetchCapsuleResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FADA8812B3B336500750140 /* FetchCapsuleResponseDTO.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				135489A52B3B542000F6DB4C /* SwiftUIIntrospect in Frameworks */,
+				135489A72B3B542000F6DB4C /* SwiftUIIntrospect-Dynamic in Frameworks */,
+				135489A92B3B542000F6DB4C /* SwiftUIIntrospect-Static in Frameworks */,
 				354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */,
 				1354897D2B3AEB2E00F6DB4C /* Alamofire in Frameworks */,
 			);
@@ -256,6 +262,9 @@
 			name = OnesFrontend;
 			packageProductDependencies = (
 				1354897C2B3AEB2E00F6DB4C /* Alamofire */,
+				135489A42B3B542000F6DB4C /* SwiftUIIntrospect */,
+				135489A62B3B542000F6DB4C /* SwiftUIIntrospect-Dynamic */,
+				135489A82B3B542000F6DB4C /* SwiftUIIntrospect-Static */,
 			);
 			productName = OnesFrontend;
 			productReference = 1350FBD22B3ABB8E009DEBA4 /* OnesFrontend.app */;
@@ -287,6 +296,7 @@
 			mainGroup = 1350FBC92B3ABB8E009DEBA4;
 			packageReferences = (
 				1354897B2B3AEB2D00F6DB4C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				135489A32B3B542000F6DB4C /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = 1350FBD32B3ABB8E009DEBA4 /* Products */;
 			projectDirPath = "";
@@ -604,6 +614,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		135489A32B3B542000F6DB4C /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -611,6 +629,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1354897B2B3AEB2D00F6DB4C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		135489A42B3B542000F6DB4C /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 135489A32B3B542000F6DB4C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+		135489A62B3B542000F6DB4C /* SwiftUIIntrospect-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 135489A32B3B542000F6DB4C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = "SwiftUIIntrospect-Dynamic";
+		};
+		135489A82B3B542000F6DB4C /* SwiftUIIntrospect-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 135489A32B3B542000F6DB4C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = "SwiftUIIntrospect-Static";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

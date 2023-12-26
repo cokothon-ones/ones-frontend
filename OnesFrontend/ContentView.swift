@@ -16,25 +16,48 @@ struct ContentView: View {
         return manager
     }()
 
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground() // <- HERE
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor(red: 0.7, green: 0.69, blue: 0.68, alpha: 1)
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.7, green: 0.69, blue: 0.68, alpha: 1)]
+
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(red: 0.17, green: 0.12, blue: 0.22, alpha: 1)
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.17, green: 0.12, blue: 0.22, alpha: 1)]
+
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().standardAppearance = appearance
+    }
+
     var body: some View {
         NavigationStack {
             TabView {
                 MainView()
                     .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
+                        Image("home")
+                            .renderingMode(.template)
+                        Text("홈")
+                            .font(
+                                .system(size: 12, weight: .medium)
+                            )
                     }
 
                 MapView()
                     .tabItem {
                         Image(systemName: "map.fill")
-                        Text("Map")
+                        Text("지도")
+                            .font(
+                                .system(size: 12, weight: .medium)
+                            )
                     }
 
                 CapsuleItemFormView()
                     .tabItem {
                         Image(systemName: "gearshape.fill")
-                        Text("Setting")
+                        Text("설정")
+                            .font(
+                                .system(size: 12, weight: .medium)
+                            )
                     }
             }
             .onAppear {

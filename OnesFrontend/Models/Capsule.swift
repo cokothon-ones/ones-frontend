@@ -53,6 +53,16 @@ struct Capsule: Identifiable, Codable {
         case createdAt = "created_at"
     }
 
+    init(id: Int, title: String, date: Date, location: String, latitude: Double, longitude: Double, createdAt: Date) {
+        self.id = id
+        self.title = title
+        self.date = date
+        self.location = location
+        self.latitude = latitude
+        self.longitude = longitude
+        self.createdAt = createdAt
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
