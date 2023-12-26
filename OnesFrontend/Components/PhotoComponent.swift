@@ -11,16 +11,12 @@ struct PhotoComponent: View {
     var name: String
     var body: some View {
         VStack(spacing: 0) {
-            Image(name)
-                .resizable()
-                .frame(width: 150, height: 250)
-                .cornerRadius(10)
-                .shadow(radius: 1)
-                .padding(.vertical, 1)
+            ZStack {
+                Image(name)
+                    .resizable()
+                    .frame(width: 186, height: 186)
+                    .blur(radius: 5, opaque: true)
+            }
         }
     }
-}
-
-#Preview {
-    PhotoComponent(name: "dummyphoto2")
 }

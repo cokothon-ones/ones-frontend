@@ -10,6 +10,8 @@ import Photos
 import SwiftUI
 
 struct CapsuleItemFormView: View {
+    @Environment(\.dismiss) var dismissAction
+
     @State var openPhoto: Bool = false
     @State var openLetter: Bool = false
     @State var image: UIImage? = nil
@@ -17,46 +19,54 @@ struct CapsuleItemFormView: View {
 
     var rows: [GridItem] = Array(repeating: .init(.fixed(50)), count: 1)
 
-    // dummy data
-    var imageNames: [String] = [
-        "dummyphoto", "dummyphoto2",
-        "dummyphoto", "dummyphoto2",
-        "dummyphoto", "dummyphoto2",
-    ]
-
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading, spacing: 0) {
                 Group {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("사진")
-                            .padding(.bottom, 10)
+                        Text("이미지")
+                            .font(
+                                Font.custom("Pretendard", size: 20)
+                                    .weight(.bold)
+                            )
+                            .padding(.bottom, 20)
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, alignment: .center) {
-                                ForEach(0...5, id: \.self) { idx in
-                                    PhotoComponent(name: imageNames[idx])
+                                ForEach(0...5, id: \.self) { _ in
+                                    PhotoComponent(name: "dummyphoto2")
                                 }
 
                                 Button(action: {
                                     openPhoto = true
                                 }, label: {
-                                    // for test 나중에 벡엔드와 연동할 때는 모든 데이터 새로 당겨오기
-                                    if let image {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .frame(width: 150, height: 250)
-                                            .cornerRadius(10)
-                                            .shadow(radius: 1)
-                                            .padding(.vertical, 1)
-                                    } else {
-                                        Image(systemName: "plus")
-                                            .frame(width: 150, height: 250)
-                                            .background(Color.gray.opacity(0.2))
-                                            .cornerRadius(10)
-                                            .shadow(radius: 1)
-                                            .padding(.vertical, 1)
+                                    VStack(alignment: .center, spacing: 24) {
+                                        VStack(alignment: .center, spacing: 10) { Image("close")
+                                            .frame(width: 24, height: 24)
+                                        }
+                                        .padding(4)
+                                        .frame(width: 48, height: 48, alignment: .center)
+                                        .cornerRadius(999)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 999)
+                                                .inset(by: -0.5)
+                                                .stroke(Color(red: 0.58, green: 0.57, blue: 0.56), lineWidth: 1)
+                                        )
+
+                                        Text("이미지 추가")
+                                            .font(Font.custom("Pretendard Variable", size: 16))
+                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                            .frame(width: 223, alignment: .top)
                                     }
+                                    .padding(16)
+                                    .frame(width: 186, height: 186, alignment: .center)
+                                    .cornerRadius(12)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .inset(by: 0.5)
+                                            .stroke(Color(red: 0.58, green: 0.57, blue: 0.56), style: StrokeStyle(lineWidth: 1, dash: [10, 10]))
+                                    )
                                 })
                             }
                         }
@@ -67,7 +77,12 @@ struct CapsuleItemFormView: View {
                 Group {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("편지")
-                            .padding(.bottom, 10)
+                            .font(
+                                Font.custom("Pretendard", size: 20)
+                                    .weight(.bold)
+                            )
+                            .padding(.top, 24)
+                            .padding(.bottom, 20)
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, alignment: .center) {
@@ -78,37 +93,103 @@ struct CapsuleItemFormView: View {
                                 Button(action: {
                                     openLetter = true
                                 }, label: {
-                                    Image(systemName: "plus")
-                                        .frame(width: 100, height: 100)
-                                        .padding(10)
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(10)
-                                        .shadow(radius: 1)
-                                        .padding(.vertical, 1)
+                                    VStack(alignment: .center, spacing: 24) {
+                                        VStack(alignment: .center, spacing: 10) { Image("close")
+                                            .frame(width: 24, height: 24)
+                                        }
+                                        .padding(4)
+                                        .frame(width: 48, height: 48, alignment: .center)
+                                        .cornerRadius(999)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 999)
+                                                .inset(by: -0.5)
+                                                .stroke(Color(red: 0.58, green: 0.57, blue: 0.56), lineWidth: 1)
+                                        )
+
+                                        Text("편지 추가")
+                                            .font(Font.custom("Pretendard Variable", size: 16))
+                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                            .frame(width: 223, alignment: .top)
+                                    }
+                                    .padding(16)
+                                    .frame(width: 168, height: 168, alignment: .center)
+                                    .cornerRadius(12)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .inset(by: 0.5)
+                                            .stroke(Color(red: 0.58, green: 0.57, blue: 0.56), style: StrokeStyle(lineWidth: 1, dash: [10, 10]))
+                                    )
                                 })
                             }
                         }
                     }
                 }
-                .padding(.bottom, 10)
+                .padding(.bottom, 24)
 
                 Group {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("장소")
-                        Text("성북구 정릉동 국민대학교")
+                        HStack {
+                            Image("location_on")
+                                .frame(width: 24, height: 24)
+                                .padding(.trailing, 10)
+
+                            Text("장소")
+                                .font(
+                                    Font.custom("Pretendard Variable", size: 20)
+                                        .weight(.semibold)
+                                )
+                        }
+                        .padding(.bottom, 10)
+
+                        HStack(alignment: .center, spacing: 24) {
+                            Text("성북구 정릉동 국민대학교")
+                            Spacer()
+                        }
+                        .padding(16)
+                        .frame(width: 343, alignment: .center)
+                        .background(Color(red: 0.97, green: 0.97, blue: 0.96))
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .inset(by: 0.5)
+                                .stroke(Color(red: 0.84, green: 0.84, blue: 0.82), lineWidth: 1)
+                        )
                     }
                 }
             }
-        }
-        .padding(20)
-        .fullScreenCover(isPresented: $openPhoto, content: {
-            ImagePickerView { assets in
-                onSelect(assets: assets)
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismissAction.callAsFunction()
+                    } label: {
+                        Image("arrow_back_ios_new")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    }
+                }
+
+                ToolbarItem(placement: .principal) {
+                    Text("타임 캡슐")
+                        .font(
+                            Font.custom("Pretendard Variable", size: 20)
+                                .weight(.semibold)
+                        )
+                        .multilineTextAlignment(.center)
+                        .frame(width: 295, alignment: .top)
+                }
             }
-        })
-        .fullScreenCover(isPresented: $openLetter, content: {
-            LetterFormView()
-        })
+            .padding(20)
+            .fullScreenCover(isPresented: $openPhoto, content: {
+                ImagePickerView { assets in
+                    onSelect(assets: assets)
+                }
+            })
+            .fullScreenCover(isPresented: $openLetter, content: {
+                LetterFormView()
+            })
+        }
     }
 
     func onSelect(assets: [PHAsset]) {

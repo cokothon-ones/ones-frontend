@@ -64,10 +64,15 @@ struct MainView: View {
 
                 ScrollView(showsIndicators: false) {
                     LazyVStack(spacing: 10) {
-//                        ForEach(1 ... 10, id: \.self) { _ in
+                        ForEach(1 ... 10, id: \.self) { _ in
 //                            CapsuleMainItem(capsule: )
 //                                .padding(.horizontal, 1)
-//                        }
+                            NavigationLink {
+                                CapsuleItemFormView()
+                            } label: {
+                                Text("타임 캡슐")
+                            }
+                        }
                     }
                 }
             }

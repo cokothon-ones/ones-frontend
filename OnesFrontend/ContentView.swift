@@ -17,27 +17,29 @@ struct ContentView: View {
     }()
 
     var body: some View {
-        TabView {
-            MainView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
+        NavigationStack {
+            TabView {
+                MainView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
 
-            MapView()
-                .tabItem {
-                    Image(systemName: "map.fill")
-                    Text("Map")
-                }
+                MapView()
+                    .tabItem {
+                        Image(systemName: "map.fill")
+                        Text("Map")
+                    }
 
-            CapsuleItemFormView()
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Setting")
-                }
-        }
-        .onAppear {
-            locationManager.requestWhenInUseAuthorization()
+                CapsuleItemFormView()
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                        Text("Setting")
+                    }
+            }
+            .onAppear {
+                locationManager.requestWhenInUseAuthorization()
+            }
         }
     }
 }
