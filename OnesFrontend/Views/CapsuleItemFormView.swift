@@ -19,7 +19,7 @@ struct CapsuleItemFormView: View {
 
     var body: some View {
         ScrollView(.vertical) {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 Group {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("사진")
@@ -54,16 +54,32 @@ struct CapsuleItemFormView: View {
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, alignment: .center) {
-                                ForEach(0...19, id: \.self) { _ in
+                                ForEach(0...5, id: \.self) { _ in
                                     LetterComponent()
                                 }
+
+                                Button(action: {
+                                    print("add action")
+                                }, label: {
+                                    Image(systemName: "plus")
+                                        .frame(width: 100, height: 100)
+                                        .padding(10)
+                                        .background(Color.gray.opacity(0.2))
+                                        .cornerRadius(10)
+                                        .shadow(radius: 1)
+                                        .padding(.vertical, 1)
+                                })
                             }
                         }
                     }
                 }
+                .padding(.bottom, 10)
 
                 Group {
-                    VStack(spacing: 0) {}
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("장소")
+                        Text("성북구 정릉동 국민대학교")
+                    }
                 }
             }
         }

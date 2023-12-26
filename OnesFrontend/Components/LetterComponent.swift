@@ -15,7 +15,7 @@ struct LetterComponent: View {
             Text(text)
                 .lineLimit(nil)
                 .multilineTextAlignment(.leading)
-                .frame(width: 250, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                .frame(maxWidth: 250, minHeight: 100)
                 .foregroundStyle(.white)
                 .padding(10)
                 .background(Color(0x4c66ec))
