@@ -27,6 +27,9 @@
 		135489902B3B064800F6DB4C /* CapsuleItemFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354898F2B3B064800F6DB4C /* CapsuleItemFormView.swift */; };
 		135489922B3B065C00F6DB4C /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489912B3B065C00F6DB4C /* ImagePickerView.swift */; };
 		135489942B3B066D00F6DB4C /* LetterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489932B3B066D00F6DB4C /* LetterFormView.swift */; };
+		135489962B3B209100F6DB4C /* Capsules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489952B3B209100F6DB4C /* Capsules.swift */; };
+		135489982B3B209E00F6DB4C /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489972B3B209E00F6DB4C /* Capsule.swift */; };
+		1354899A2B3B2B4900F6DB4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489992B3B2B4900F6DB4C /* User.swift */; };
 		354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +62,9 @@
 		1354898F2B3B064800F6DB4C /* CapsuleItemFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleItemFormView.swift; sourceTree = "<group>"; };
 		135489912B3B065C00F6DB4C /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		135489932B3B066D00F6DB4C /* LetterFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterFormView.swift; sourceTree = "<group>"; };
+		135489952B3B209100F6DB4C /* Capsules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsules.swift; sourceTree = "<group>"; };
+		135489972B3B209E00F6DB4C /* Capsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
+		135489992B3B2B4900F6DB4C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		251A25B0823A4896651245AA /* Pods-OnesFrontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.debug.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.debug.xcconfig"; sourceTree = "<group>"; };
 		25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnesFrontend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A8DB66E258A6F80C83F776 /* Pods-OnesFrontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.release.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +154,9 @@
 				1350FBE92B3ABC13009DEBA4 /* DTO */,
 				1350FBEE2B3ABC4A009DEBA4 /* README.md */,
 				1354898B2B3B05DC00F6DB4C /* ImageAsset.swift */,
+				135489952B3B209100F6DB4C /* Capsules.swift */,
+				135489972B3B209E00F6DB4C /* Capsule.swift */,
+				135489992B3B2B4900F6DB4C /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,9 +355,12 @@
 				1354898C2B3B05DC00F6DB4C /* ImageAsset.swift in Sources */,
 				1354898A2B3B05C400F6DB4C /* PhotoComponent.swift in Sources */,
 				1350FBF52B3ABE81009DEBA4 /* Color.swift in Sources */,
+				1354899A2B3B2B4900F6DB4C /* User.swift in Sources */,
+				135489982B3B209E00F6DB4C /* Capsule.swift in Sources */,
 				135489942B3B066D00F6DB4C /* LetterFormView.swift in Sources */,
 				135489872B3B059E00F6DB4C /* LetterComponent.swift in Sources */,
 				1354897F2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift in Sources */,
+				135489962B3B209100F6DB4C /* Capsules.swift in Sources */,
 				1350FBF72B3AC30C009DEBA4 /* CapsuleMainItem.swift in Sources */,
 				135489812B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift in Sources */,
 				135489922B3B065C00F6DB4C /* ImagePickerView.swift in Sources */,
