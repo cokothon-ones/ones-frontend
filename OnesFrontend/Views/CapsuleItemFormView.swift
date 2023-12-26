@@ -5,9 +5,16 @@
 //  Created by 이준호 on 12/26/23.
 //
 
+import Photos
+
 import SwiftUI
 
 struct CapsuleItemFormView: View {
+    @State var openPhoto: Bool = false
+    @State var openLetter: Bool = false
+    @State var image: UIImage? = nil
+    @State var isProgress: Bool = false
+
     var rows: [GridItem] = Array(repeating: .init(.fixed(50)), count: 1)
 
     // dummy data
@@ -32,14 +39,24 @@ struct CapsuleItemFormView: View {
                                 }
 
                                 Button(action: {
-                                    print("add action")
+                                    openPhoto = true
                                 }, label: {
-                                    Image(systemName: "plus")
-                                        .frame(width: 150, height: 250)
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(10)
-                                        .shadow(radius: 1)
-                                        .padding(.vertical, 1)
+                                    // for test 나중에 벡엔드와 연동할 때는 모든 데이터 새로 당겨오기
+                                    if let image {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .frame(width: 150, height: 250)
+                                            .cornerRadius(10)
+                                            .shadow(radius: 1)
+                                            .padding(.vertical, 1)
+                                    } else {
+                                        Image(systemName: "plus")
+                                            .frame(width: 150, height: 250)
+                                            .background(Color.gray.opacity(0.2))
+                                            .cornerRadius(10)
+                                            .shadow(radius: 1)
+                                            .padding(.vertical, 1)
+                                    }
                                 })
                             }
                         }
@@ -59,7 +76,7 @@ struct CapsuleItemFormView: View {
                                 }
 
                                 Button(action: {
-                                    print("add action")
+                                    openLetter = true
                                 }, label: {
                                     Image(systemName: "plus")
                                         .frame(width: 100, height: 100)
@@ -84,6 +101,46 @@ struct CapsuleItemFormView: View {
             }
         }
         .padding(20)
+        .fullScreenCover(isPresented: $openPhoto, content: {
+            PopupImagePicker { assets in
+                onSelect(assets: assets)
+            }
+        })
+        .fullScreenCover(isPresented: $openLetter, content: {
+            
+        })
+    }
+
+    func onSelect(assets: [PHAsset]) {
+        // MARK: Do Your Operation With PHAsset
+
+        // I'm Simply Extracting Image
+        // .init() Means Exact Size of the Image
+        let manager = PHCachingImageManager.default()
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = true
+
+        options.progressHandler = { progress, _, _, _ in
+            if progress == 1.0 {
+                isProgress = false
+            } else {
+                isProgress = true
+            }
+        }
+
+        DispatchQueue.global(qos: .userInteractive).async {
+            assets.forEach { asset in
+                manager.requestImage(for: asset, targetSize: .init(), contentMode: .aspectFit, options: options) { image, _ in
+                    guard let image else { return }
+
+                    DispatchQueue.main.async {
+                        self.image = image
+                        isProgress = false
+                    }
+                }
+            }
+        }
     }
 }
 
