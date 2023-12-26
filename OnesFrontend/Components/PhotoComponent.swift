@@ -15,6 +15,8 @@ struct PhotoComponent: View {
                 .resizable()
                 .frame(width: 150, height: 250)
                 .cornerRadius(10)
+                .shadow(radius: 1)
+                .padding(.vertical, 1)
         }
     }
 }

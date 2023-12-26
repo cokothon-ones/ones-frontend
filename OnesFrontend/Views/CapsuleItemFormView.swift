@@ -35,6 +35,11 @@ struct CapsuleItemFormView: View {
                                     print("add action")
                                 }, label: {
                                     Image(systemName: "plus")
+                                        .frame(width: 150, height: 250)
+                                        .background(Color.gray.opacity(0.2))
+                                        .cornerRadius(10)
+                                        .shadow(radius: 1)
+                                        .padding(.vertical, 1)
                                 })
                             }
                         }
@@ -50,10 +55,7 @@ struct CapsuleItemFormView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHGrid(rows: rows, alignment: .center) {
                                 ForEach(0...19, id: \.self) { _ in
-                                    Color(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1))
-                                        .cornerRadius(15)
-                                        .frame(width: 50, height: 50)
-                                        .padding()
+                                    LetterComponent()
                                 }
                             }
                         }

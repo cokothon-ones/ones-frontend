@@ -13,6 +13,14 @@ struct LetterComponent: View {
     var body: some View {
         VStack(spacing: 0) {
             Text(text)
+                .lineLimit(nil)
+                .multilineTextAlignment(.leading)
+                .frame(width: 250, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                .foregroundStyle(.white)
+                .padding(10)
+                .background(Color(0x4c66ec))
+                .cornerRadius(10)
+                .shadow(radius: 1)
         }
     }
 }
