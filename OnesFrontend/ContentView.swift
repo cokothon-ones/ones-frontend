@@ -22,7 +22,7 @@ struct ContentView: View {
                     Text("Map")
                 }
 
-            Text("Setting")
+            CapsuleItemFormView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                     Text("Setting")

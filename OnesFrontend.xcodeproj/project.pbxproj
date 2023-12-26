@@ -18,6 +18,15 @@
 		1354897D2B3AEB2E00F6DB4C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1354897C2B3AEB2E00F6DB4C /* Alamofire */; };
 		1354897F2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354897E2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift */; };
 		135489812B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489802B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift */; };
+		135489832B3B055D00F6DB4C /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489822B3B055D00F6DB4C /* Border.swift */; };
+		135489852B3B057600F6DB4C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489842B3B057600F6DB4C /* View.swift */; };
+		135489872B3B059E00F6DB4C /* LetterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489862B3B059E00F6DB4C /* LetterComponent.swift */; };
+		1354898A2B3B05C400F6DB4C /* PhotoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489892B3B05C400F6DB4C /* PhotoComponent.swift */; };
+		1354898C2B3B05DC00F6DB4C /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354898B2B3B05DC00F6DB4C /* ImageAsset.swift */; };
+		1354898E2B3B05FB00F6DB4C /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354898D2B3B05FB00F6DB4C /* ImagePickerViewModel.swift */; };
+		135489902B3B064800F6DB4C /* CapsuleItemFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354898F2B3B064800F6DB4C /* CapsuleItemFormView.swift */; };
+		135489922B3B065C00F6DB4C /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489912B3B065C00F6DB4C /* ImagePickerView.swift */; };
+		135489942B3B066D00F6DB4C /* LetterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135489932B3B066D00F6DB4C /* LetterFormView.swift */; };
 		354722B2195E773E0B13D5E0 /* Pods_OnesFrontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +50,15 @@
 		135489792B3AE29800F6DB4C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1354897E2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeoCodeResponseDTO.swift; sourceTree = "<group>"; };
 		135489802B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverLocalSearchResponseDTO.swift; sourceTree = "<group>"; };
+		135489822B3B055D00F6DB4C /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
+		135489842B3B057600F6DB4C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		135489862B3B059E00F6DB4C /* LetterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterComponent.swift; sourceTree = "<group>"; };
+		135489892B3B05C400F6DB4C /* PhotoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoComponent.swift; sourceTree = "<group>"; };
+		1354898B2B3B05DC00F6DB4C /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		1354898D2B3B05FB00F6DB4C /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
+		1354898F2B3B064800F6DB4C /* CapsuleItemFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleItemFormView.swift; sourceTree = "<group>"; };
+		135489912B3B065C00F6DB4C /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		135489932B3B066D00F6DB4C /* LetterFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterFormView.swift; sourceTree = "<group>"; };
 		251A25B0823A4896651245AA /* Pods-OnesFrontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.debug.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.debug.xcconfig"; sourceTree = "<group>"; };
 		25619016F340BB4F2182A07A /* Pods_OnesFrontend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnesFrontend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A8DB66E258A6F80C83F776 /* Pods-OnesFrontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnesFrontend.release.xcconfig"; path = "Target Support Files/Pods-OnesFrontend/Pods-OnesFrontend.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +136,8 @@
 				1350FBF02B3ABC59009DEBA4 /* README.md */,
 				1350FBF62B3AC30C009DEBA4 /* CapsuleMainItem.swift */,
 				135489792B3AE29800F6DB4C /* MapView.swift */,
+				135489862B3B059E00F6DB4C /* LetterComponent.swift */,
+				135489892B3B05C400F6DB4C /* PhotoComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -127,6 +147,7 @@
 			children = (
 				1350FBE92B3ABC13009DEBA4 /* DTO */,
 				1350FBEE2B3ABC4A009DEBA4 /* README.md */,
+				1354898B2B3B05DC00F6DB4C /* ImageAsset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				1350FBEB2B3ABC31009DEBA4 /* README.md */,
+				1354898D2B3B05FB00F6DB4C /* ImagePickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -160,6 +182,9 @@
 			children = (
 				1350FBEA2B3ABC29009DEBA4 /* README.md */,
 				1350FBF12B3ABD4B009DEBA4 /* MainView.swift */,
+				1354898F2B3B064800F6DB4C /* CapsuleItemFormView.swift */,
+				135489912B3B065C00F6DB4C /* ImagePickerView.swift */,
+				135489932B3B066D00F6DB4C /* LetterFormView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				1350FBF42B3ABE81009DEBA4 /* Color.swift */,
+				135489822B3B055D00F6DB4C /* Border.swift */,
+				135489842B3B057600F6DB4C /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,13 +338,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1354898E2B3B05FB00F6DB4C /* ImagePickerViewModel.swift in Sources */,
 				1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */,
+				135489832B3B055D00F6DB4C /* Border.swift in Sources */,
+				135489852B3B057600F6DB4C /* View.swift in Sources */,
 				1354897A2B3AE29800F6DB4C /* MapView.swift in Sources */,
+				1354898C2B3B05DC00F6DB4C /* ImageAsset.swift in Sources */,
+				1354898A2B3B05C400F6DB4C /* PhotoComponent.swift in Sources */,
 				1350FBF52B3ABE81009DEBA4 /* Color.swift in Sources */,
+				135489942B3B066D00F6DB4C /* LetterFormView.swift in Sources */,
+				135489872B3B059E00F6DB4C /* LetterComponent.swift in Sources */,
 				1354897F2B3AEE4C00F6DB4C /* NaverGeoCodeResponseDTO.swift in Sources */,
 				1350FBF72B3AC30C009DEBA4 /* CapsuleMainItem.swift in Sources */,
 				135489812B3AF5D100F6DB4C /* NaverLocalSearchResponseDTO.swift in Sources */,
+				135489922B3B065C00F6DB4C /* ImagePickerView.swift in Sources */,
 				1350FBF22B3ABD4B009DEBA4 /* MainView.swift in Sources */,
+				135489902B3B064800F6DB4C /* CapsuleItemFormView.swift in Sources */,
 				1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
