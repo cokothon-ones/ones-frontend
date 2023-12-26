@@ -26,8 +26,7 @@ struct CapsuleMainItem: View {
                     VStack(alignment: .center, spacing: 10) {
                         Text("\(dDay)")
                             .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(Color(red: 0.11, green: 0.11, blue: 0.12)
-                            )
+                            .foregroundColor(Color(red: 0.11, green: 0.11, blue: 0.12))
                     }
                     .padding(4)
                     .frame(width: 48, height: 36, alignment: .center)

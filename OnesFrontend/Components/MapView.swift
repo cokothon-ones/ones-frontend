@@ -75,11 +75,15 @@ struct MapView: View {
                         }
                 }
                 .padding(.leading, 10)
-                .background {
-                    Color(.white)
-                }
+                .background(Color(red: 0.95, green: 0.95, blue: 0.97))
+                .cornerRadius(5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .inset(by: 0.5)
+                        .stroke(Color(red: 0.84, green: 0.84, blue: 0.82),
+                                lineWidth: 1)
+                )
                 .frame(height: 50)
-                .cornerRadius(15)
             }
             .padding(20)
         }
