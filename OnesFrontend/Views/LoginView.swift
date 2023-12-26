@@ -5,9 +5,12 @@
 //  Created by 이준호 on 12/27/23.
 //
 
+import Alamofire
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.dismiss) var dismissAction
+
     // MARK: - Propertiers
 
     @State private var email = ""
@@ -76,6 +79,26 @@ struct LoginView: View {
         .background(Color(red: 0.37, green: 0.47, blue: 0.68))
         .cornerRadius(12)
         .padding(20)
+        .onTapGesture {
+            let parameters: Parameters = [
+                "email": email,
+                "password": password,
+            ]
+
+            AF.request(
+                Global.baseUrl + "/auth/login",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default
+            ).responseDecodable(of: LoginResponseDTO.self) { response in
+                switch response.result {
+                case let .success(response):
+                    dismissAction.callAsFunction()
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
     }
 }
 

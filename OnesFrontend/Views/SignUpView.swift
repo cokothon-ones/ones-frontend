@@ -19,7 +19,7 @@ struct SignUpView: View {
             VStack(spacing: 8) {
                 HStack {
                     Text("이메일")
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 16, weight: .semibold))
                     Spacer()
                 }
                 .padding(.bottom, 8)
@@ -43,7 +43,7 @@ struct SignUpView: View {
 
                 HStack {
                     Text("비밀번호")
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 16, weight: .semibold))
                     Spacer()
                 }
                 .padding(.bottom, 8)

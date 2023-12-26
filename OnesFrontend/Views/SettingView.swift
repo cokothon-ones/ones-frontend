@@ -13,7 +13,9 @@ struct SettingView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 12) {
-                SettingRow(iconName: "setting-account", content: "로그인") {}
+                SettingRow(iconName: "setting-account", content: "로그인") {
+                    LoginView()
+                }
 
                 SettingRow(iconName: "setting-privacy", content: "회원 가입") {
                     SignUpView()
