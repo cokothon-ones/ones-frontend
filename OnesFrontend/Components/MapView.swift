@@ -140,10 +140,6 @@ struct UIMapView: UIViewRepresentable {
         let marker = NMFMarker()
         marker.position = NMGLatLng(lat: 37.611035490773, lng: 126.99457310622)
         marker.mapView = uiView.mapView
-        marker.iconImage = NMFOverlayImage(name: "orem")
-        marker.iconTintColor = UIColor.red
-        marker.width = 25
-        marker.height = 40
     }
 }
 
