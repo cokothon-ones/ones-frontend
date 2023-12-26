@@ -7,22 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1350FB932B3AB733009DEBA4 /* ones_frontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FB922B3AB733009DEBA4 /* ones_frontendApp.swift */; };
-		1350FB952B3AB733009DEBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FB942B3AB733009DEBA4 /* ContentView.swift */; };
-		1350FB972B3AB735009DEBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FB962B3AB735009DEBA4 /* Assets.xcassets */; };
-		1350FB9A2B3AB735009DEBA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FB992B3AB735009DEBA4 /* Preview Assets.xcassets */; };
+		1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBD52B3ABB8E009DEBA4 /* OnesFrontendApp.swift */; };
+		1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1350FBD72B3ABB8E009DEBA4 /* ContentView.swift */; };
+		1350FBDA2B3ABB90009DEBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FBD92B3ABB90009DEBA4 /* Assets.xcassets */; };
+		1350FBDD2B3ABB90009DEBA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1350FBDC2B3ABB90009DEBA4 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1350FB8F2B3AB733009DEBA4 /* ones-frontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ones-frontend.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1350FB922B3AB733009DEBA4 /* ones_frontendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ones_frontendApp.swift; sourceTree = "<group>"; };
-		1350FB942B3AB733009DEBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1350FB962B3AB735009DEBA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1350FB992B3AB735009DEBA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1350FBD22B3ABB8E009DEBA4 /* OnesFrontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnesFrontend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1350FBD52B3ABB8E009DEBA4 /* OnesFrontendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnesFrontendApp.swift; sourceTree = "<group>"; };
+		1350FBD72B3ABB8E009DEBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1350FBD92B3ABB90009DEBA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1350FBDC2B3ABB90009DEBA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1350FBEA2B3ABC29009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBEB2B3ABC31009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBEC2B3ABC3A009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBED2B3ABC41009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBEE2B3ABC4A009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBEF2B3ABC51009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1350FBF02B3ABC59009DEBA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1350FB8C2B3AB733009DEBA4 /* Frameworks */ = {
+		1350FBCF2B3ABB8E009DEBA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,77 +39,140 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1350FB862B3AB733009DEBA4 = {
+		1350FBC92B3ABB8E009DEBA4 = {
 			isa = PBXGroup;
 			children = (
-				1350FB912B3AB733009DEBA4 /* ones-frontend */,
-				1350FB902B3AB733009DEBA4 /* Products */,
+				1350FBD42B3ABB8E009DEBA4 /* OnesFrontend */,
+				1350FBD32B3ABB8E009DEBA4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1350FB902B3AB733009DEBA4 /* Products */ = {
+		1350FBD32B3ABB8E009DEBA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1350FB8F2B3AB733009DEBA4 /* ones-frontend.app */,
+				1350FBD22B3ABB8E009DEBA4 /* OnesFrontend.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1350FB912B3AB733009DEBA4 /* ones-frontend */ = {
+		1350FBD42B3ABB8E009DEBA4 /* OnesFrontend */ = {
 			isa = PBXGroup;
 			children = (
-				1350FB922B3AB733009DEBA4 /* ones_frontendApp.swift */,
-				1350FB942B3AB733009DEBA4 /* ContentView.swift */,
-				1350FB962B3AB735009DEBA4 /* Assets.xcassets */,
-				1350FB982B3AB735009DEBA4 /* Preview Content */,
+				1350FBE82B3ABC08009DEBA4 /* Views */,
+				1350FBE72B3ABC00009DEBA4 /* ViewModels */,
+				1350FBE62B3ABBF7009DEBA4 /* Utilities */,
+				1350FBE52B3ABBF2009DEBA4 /* Services */,
+				1350FBE42B3ABBEA009DEBA4 /* Models */,
+				1350FBE32B3ABBE3009DEBA4 /* Components */,
+				1350FBD52B3ABB8E009DEBA4 /* OnesFrontendApp.swift */,
+				1350FBD72B3ABB8E009DEBA4 /* ContentView.swift */,
+				1350FBD92B3ABB90009DEBA4 /* Assets.xcassets */,
+				1350FBDB2B3ABB90009DEBA4 /* Preview Content */,
 			);
-			path = "ones-frontend";
+			path = OnesFrontend;
 			sourceTree = "<group>";
 		};
-		1350FB982B3AB735009DEBA4 /* Preview Content */ = {
+		1350FBDB2B3ABB90009DEBA4 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				1350FB992B3AB735009DEBA4 /* Preview Assets.xcassets */,
+				1350FBDC2B3ABB90009DEBA4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1350FBE32B3ABBE3009DEBA4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBF02B3ABC59009DEBA4 /* README.md */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1350FBE42B3ABBEA009DEBA4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBE92B3ABC13009DEBA4 /* DTO */,
+				1350FBEE2B3ABC4A009DEBA4 /* README.md */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1350FBE52B3ABBF2009DEBA4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBED2B3ABC41009DEBA4 /* README.md */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1350FBE62B3ABBF7009DEBA4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBEC2B3ABC3A009DEBA4 /* README.md */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1350FBE72B3ABC00009DEBA4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBEB2B3ABC31009DEBA4 /* README.md */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1350FBE82B3ABC08009DEBA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBEA2B3ABC29009DEBA4 /* README.md */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1350FBE92B3ABC13009DEBA4 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				1350FBEF2B3ABC51009DEBA4 /* README.md */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1350FB8E2B3AB733009DEBA4 /* ones-frontend */ = {
+		1350FBD12B3ABB8E009DEBA4 /* OnesFrontend */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1350FB9D2B3AB735009DEBA4 /* Build configuration list for PBXNativeTarget "ones-frontend" */;
+			buildConfigurationList = 1350FBE02B3ABB90009DEBA4 /* Build configuration list for PBXNativeTarget "OnesFrontend" */;
 			buildPhases = (
-				1350FB8B2B3AB733009DEBA4 /* Sources */,
-				1350FB8C2B3AB733009DEBA4 /* Frameworks */,
-				1350FB8D2B3AB733009DEBA4 /* Resources */,
+				1350FBCE2B3ABB8E009DEBA4 /* Sources */,
+				1350FBCF2B3ABB8E009DEBA4 /* Frameworks */,
+				1350FBD02B3ABB8E009DEBA4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ones-frontend";
-			productName = "ones-frontend";
-			productReference = 1350FB8F2B3AB733009DEBA4 /* ones-frontend.app */;
+			name = OnesFrontend;
+			productName = OnesFrontend;
+			productReference = 1350FBD22B3ABB8E009DEBA4 /* OnesFrontend.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1350FB872B3AB733009DEBA4 /* Project object */ = {
+		1350FBCA2B3ABB8E009DEBA4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
-					1350FB8E2B3AB733009DEBA4 = {
+					1350FBD12B3ABB8E009DEBA4 = {
 						CreatedOnToolsVersion = 15.1;
 					};
 				};
 			};
-			buildConfigurationList = 1350FB8A2B3AB733009DEBA4 /* Build configuration list for PBXProject "ones-frontend" */;
+			buildConfigurationList = 1350FBCD2B3ABB8E009DEBA4 /* Build configuration list for PBXProject "OnesFrontend" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +180,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 1350FB862B3AB733009DEBA4;
-			productRefGroup = 1350FB902B3AB733009DEBA4 /* Products */;
+			mainGroup = 1350FBC92B3ABB8E009DEBA4;
+			productRefGroup = 1350FBD32B3ABB8E009DEBA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1350FB8E2B3AB733009DEBA4 /* ones-frontend */,
+				1350FBD12B3ABB8E009DEBA4 /* OnesFrontend */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1350FB8D2B3AB733009DEBA4 /* Resources */ = {
+		1350FBD02B3ABB8E009DEBA4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1350FB9A2B3AB735009DEBA4 /* Preview Assets.xcassets in Resources */,
-				1350FB972B3AB735009DEBA4 /* Assets.xcassets in Resources */,
+				1350FBDD2B3ABB90009DEBA4 /* Preview Assets.xcassets in Resources */,
+				1350FBDA2B3ABB90009DEBA4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1350FB8B2B3AB733009DEBA4 /* Sources */ = {
+		1350FBCE2B3ABB8E009DEBA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1350FB952B3AB733009DEBA4 /* ContentView.swift in Sources */,
-				1350FB932B3AB733009DEBA4 /* ones_frontendApp.swift in Sources */,
+				1350FBD82B3ABB8E009DEBA4 /* ContentView.swift in Sources */,
+				1350FBD62B3ABB8E009DEBA4 /* OnesFrontendApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1350FB9B2B3AB735009DEBA4 /* Debug */ = {
+		1350FBDE2B3ABB90009DEBA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +278,7 @@
 			};
 			name = Debug;
 		};
-		1350FB9C2B3AB735009DEBA4 /* Release */ = {
+		1350FBDF2B3ABB90009DEBA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,14 +334,14 @@
 			};
 			name = Release;
 		};
-		1350FB9E2B3AB735009DEBA4 /* Debug */ = {
+		1350FBE12B3ABB90009DEBA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ones-frontend/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OnesFrontend/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -284,7 +354,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ones.ones-frontend";
+				PRODUCT_BUNDLE_IDENTIFIER = ones.OnesFrontend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -292,14 +362,14 @@
 			};
 			name = Debug;
 		};
-		1350FB9F2B3AB735009DEBA4 /* Release */ = {
+		1350FBE22B3ABB90009DEBA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ones-frontend/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OnesFrontend/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -312,7 +382,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ones.ones-frontend";
+				PRODUCT_BUNDLE_IDENTIFIER = ones.OnesFrontend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -323,25 +393,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1350FB8A2B3AB733009DEBA4 /* Build configuration list for PBXProject "ones-frontend" */ = {
+		1350FBCD2B3ABB8E009DEBA4 /* Build configuration list for PBXProject "OnesFrontend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1350FB9B2B3AB735009DEBA4 /* Debug */,
-				1350FB9C2B3AB735009DEBA4 /* Release */,
+				1350FBDE2B3ABB90009DEBA4 /* Debug */,
+				1350FBDF2B3ABB90009DEBA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1350FB9D2B3AB735009DEBA4 /* Build configuration list for PBXNativeTarget "ones-frontend" */ = {
+		1350FBE02B3ABB90009DEBA4 /* Build configuration list for PBXNativeTarget "OnesFrontend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1350FB9E2B3AB735009DEBA4 /* Debug */,
-				1350FB9F2B3AB735009DEBA4 /* Release */,
+				1350FBE12B3ABB90009DEBA4 /* Debug */,
+				1350FBE22B3ABB90009DEBA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1350FB872B3AB733009DEBA4 /* Project object */;
+	rootObject = 1350FBCA2B3ABB8E009DEBA4 /* Project object */;
 }

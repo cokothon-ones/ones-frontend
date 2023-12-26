@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  ones-frontend
+//  OnesFrontend
 //
 //  Created by 최정민 on 12/26/23.
 //
