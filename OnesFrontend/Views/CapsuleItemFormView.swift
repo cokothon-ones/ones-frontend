@@ -277,8 +277,7 @@ struct CapsuleItemFormView: View {
                                   usingThreshold: .init(),
                                   method: .post,
                                   headers: headers).response {
-                            result in
-                            print(result.response)
+                            _ in
                         }
                     }
                 }

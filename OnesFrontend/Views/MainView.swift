@@ -5,6 +5,7 @@
 //  Created by 최정민 on 12/26/23.
 //
 
+import Alamofire
 import SwiftUI
 
 struct CapsuleList: View {
@@ -15,6 +16,28 @@ struct CapsuleList: View {
             LazyVStack(spacing: 29) {
                 ForEach($data.items) { $capsule in
                     CapsuleMainItem(title: capsule.title, date: capsule.date, dDay: capsule.getDDay(), isOpen: capsule.date <= .now, location: capsule.location, capsuleCode: capsule.code, capsuleId: capsule.id)
+                        .simultaneousGesture(TapGesture()
+                            .onEnded { _ in
+                                let headers: HTTPHeaders = [
+                                    "Set-Cookie": Global.default.sid,
+                                ]
+
+                                let parameters: Parameters = [
+                                    "capsuleId": capsule.id,
+                                    "latitude": capsule.latitude,
+                                    "longitude": capsule.longitude,
+                                ]
+
+                                AF.request(
+                                    Global.baseUrl + "/member/auth",
+                                    method: .patch,
+                                    parameters: parameters,
+                                    encoding: JSONEncoding.default,
+                                    headers: headers
+                                ).response { result in
+                                    print(result.response)
+                                }
+                            })
                 }
                 Spacer(minLength: 70)
             }

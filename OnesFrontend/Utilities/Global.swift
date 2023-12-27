@@ -14,7 +14,7 @@ final class Global: ObservableObject {
 
     var mapView: NMFNaverMapView = .init()
 
-    static let baseUrl = "http://10.223.116.154:3000"
+    static let baseUrl = "http://10.223.118.56:3000"
 
     var user: User = .init(id: 1234, email: "test1@test.com", password: "1234")
     var capsules: Capsules = .init(items: [])
