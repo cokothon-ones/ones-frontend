@@ -14,7 +14,7 @@ struct CapsuleList: View {
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 29) {
                 ForEach($data.items) { $capsule in
-                    CapsuleMainItem(title: capsule.title, date: capsule.date, dDay: capsule.getDDay(), isOpen: capsule.date <= .now, location: capsule.location, capsuleCode: capsule.code)
+                    CapsuleMainItem(title: capsule.title, date: capsule.date, dDay: capsule.getDDay(), isOpen: capsule.date <= .now, location: capsule.location, capsuleCode: capsule.code, capsuleId: capsule.id)
                 }
                 Spacer(minLength: 70)
             }
@@ -31,6 +31,7 @@ struct MainView: View {
 
     @State var location: String = ""
     @State var capsuleCode: String = ""
+    @State var capsuleId: Int = -1
 
     @StateObject var global: Global
 
@@ -119,7 +120,7 @@ struct MainView: View {
                 showModal = true
             }
 
-            NavigationLink("", destination: CapsuleItemFormView(location: location, capsuleCode: capsuleCode), isActive: $navigated)
+            NavigationLink("", destination: CapsuleItemFormView(location: location, capsuleCode: capsuleCode, capsuleId: capsuleId), isActive: $navigated)
 
             if showModal {
                 ZStack {

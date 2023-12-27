@@ -14,6 +14,7 @@ struct CapsuleMainItem: View {
     var isOpen: Bool = true
     var location: String
     var capsuleCode: String
+    var capsuleId: Int
 
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -48,7 +49,7 @@ struct CapsuleMainItem: View {
 
                         if !isOpen {
                             NavigationLink {
-                                CapsuleItemFormView(location: location, capsuleCode: capsuleCode)
+                                CapsuleItemFormView(location: location, capsuleCode: capsuleCode, capsuleId: capsuleId)
                             } label: {
                                 Text("\(formatter.string(from: date))")
                                     .foregroundColor(.white)

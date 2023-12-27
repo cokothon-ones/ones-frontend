@@ -5,8 +5,8 @@
 //  Created by 이준호 on 12/26/23.
 //
 
+import Alamofire
 import Photos
-
 import SwiftUI
 
 struct CapsuleItemFormView: View {
@@ -21,6 +21,13 @@ struct CapsuleItemFormView: View {
 
     var location: String
     var capsuleCode: String
+    var capsuleId: Int
+
+    init(location: String, capsuleCode: String, capsuleId: Int) {
+        self.location = location
+        self.capsuleCode = capsuleCode
+        self.capsuleId = capsuleId
+    }
 
     var body: some View {
         ScrollView(.vertical) {
@@ -246,6 +253,33 @@ struct CapsuleItemFormView: View {
                     DispatchQueue.main.async {
                         self.image = image
                         isProgress = false
+
+                        let headers: HTTPHeaders = [
+                            "Content-Type": "multipart/form-data; boundary=Boundary-\(UUID().uuidString)",
+                            "Set-Cookie": Global.default.sid,
+                        ]
+
+                        let parameters: Parameters = [
+                            "capsule_id": String(capsuleId),
+                        ]
+
+                        AF.upload(multipartFormData: { multipartFormData in
+                                      if let image = image.jpegData(compressionQuality: 1) {
+                                          multipartFormData.append(image, withName: "file", fileName: "\(image).jpeg", mimeType: "image/jpeg")
+                                      }
+                                      for (key, value) in parameters {
+                                          if let data = value as? String {
+                                              multipartFormData.append(data.data(using: .utf8)!, withName: key)
+                                          }
+                                      }
+                                  },
+                                  to: Global.baseUrl + "/item/photo",
+                                  usingThreshold: .init(),
+                                  method: .post,
+                                  headers: headers).response {
+                            result in
+                            print(result.response)
+                        }
                     }
                 }
             }
