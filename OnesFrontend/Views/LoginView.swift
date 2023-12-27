@@ -96,6 +96,9 @@ struct LoginView: View {
                 {
                     Global.default.sid = sid
                     dismissAction.callAsFunction()
+                    CapsuleRoomService.fetchCapsules(userId: Global.default.user.id) { response in
+                        Global.default.capsules = response
+                    }
                 }
             }
         }

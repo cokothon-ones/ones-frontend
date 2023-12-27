@@ -8,7 +8,7 @@
 import Foundation
 import NMapsMap
 
-final class Global {
+final class Global: ObservableObject {
     static let `default`: Global = .init()
     private init() {}
 

@@ -29,10 +29,12 @@ struct ContentView: View {
         UITabBar.appearance().standardAppearance = appearance
     }
 
+    @State var selection: Int = 2
+
     var body: some View {
         NavigationStack {
-            TabView {
-                MainView()
+            TabView(selection: $selection) {
+                MainView(global: Global.default)
                     .tabItem {
                         Image("home")
                             .renderingMode(.template)
@@ -41,6 +43,7 @@ struct ContentView: View {
                                 .system(size: 12, weight: .medium)
                             )
                     }
+                    .tag(0)
 
                 MapView()
                     .tabItem {
@@ -50,6 +53,7 @@ struct ContentView: View {
                                 .system(size: 12, weight: .medium)
                             )
                     }
+                    .tag(1)
 
                 SettingView()
                     .tabItem {
@@ -59,6 +63,7 @@ struct ContentView: View {
                                 .system(size: 12, weight: .medium)
                             )
                     }
+                    .tag(2)
             }
             .onAppear {
                 locationManager.requestWhenInUseAuthorization()

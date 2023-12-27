@@ -7,12 +7,29 @@
 
 import SwiftUI
 
+struct CapsuleList: View {
+    @Binding var data: Capsules
+
+    var body: some View {
+        ScrollView(showsIndicators: false) {
+            LazyVStack(spacing: 29) {
+                ForEach($data.items) { $capsule in
+                    CapsuleMainItem(title: capsule.title, date: capsule.date, dDay: capsule.getDDay(), isOpen: capsule.date <= .now)
+                }
+                Spacer(minLength: 70)
+            }
+        }
+    }
+}
+
 struct MainView: View {
     @State var isSelected: Bool = true
     @State var showModal: Bool = false
     @State var navigated: Bool = false
 
     @State var showCapsuleCodeForm: Bool = false
+
+    @StateObject var global: Global
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -61,10 +78,10 @@ struct MainView: View {
                 Spacer(minLength: 5)
 
                 HStack(alignment: .center, spacing: 5) {
-                    Text("잠긴 캡슐")
+                    Text("\(isSelected ? "잠긴" : "열린") 캡슐")
                         .foregroundColor(Color(0x191919))
 
-                    Text("6개")
+                    Text("\(global.capsules.getCapsules(locked: isSelected).items.count)")
                         .foregroundColor(Color(red: 0.37, green: 0.48, blue: 0.68))
 
                     Spacer()
@@ -79,19 +96,7 @@ struct MainView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 5)
 
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 29) {
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0, isOpen: false)
-                        CapsuleMainItem(title: "Hello", date: .now, dDay: 0)
-
-                        Spacer(minLength: 70)
-                    }
-                }
+                CapsuleList(data: Binding.constant(global.capsules.getCapsules(locked: isSelected)))
             }
 
             HStack(alignment: .center, spacing: 15) {
@@ -158,9 +163,10 @@ struct MainView: View {
                 }
             }
         }
+        .onAppear {
+            CapsuleRoomService.fetchCapsules(userId: Global.default.user.id) { response in
+                Global.default.capsules = response
+            }
+        }
     }
-}
-
-#Preview {
-    MainView()
 }
