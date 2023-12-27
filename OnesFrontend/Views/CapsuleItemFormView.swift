@@ -17,13 +17,10 @@ struct CapsuleItemFormView: View {
     @State var image: UIImage? = nil
     @State var isProgress: Bool = false
 
-    @State var location: String = ""
-
-    @State var showSheet: Bool = false
-    @State var addresses: [NaverLocalSearchResponseDTO.Item] = []
-    @State var coord: (Double, Double) = (0, 0) // post시 위도, 경도
-
     var rows: [GridItem] = Array(repeating: .init(.fixed(50)), count: 1)
+
+    var location: String
+    var capsuleCode: String
 
     var body: some View {
         ScrollView(.vertical) {
@@ -138,7 +135,6 @@ struct CapsuleItemFormView: View {
                         HStack {
                             Image("location_on")
                                 .frame(width: 24, height: 24)
-                                .padding(.trailing, 10)
 
                             Text("장소")
                                 .font(
@@ -148,15 +144,8 @@ struct CapsuleItemFormView: View {
                         .padding(.bottom, 10)
 
                         HStack(alignment: .center, spacing: 24) {
-                            TextField("장소를 입력하세요.", text: $location)
-                            Spacer()
-                            Image(systemName: "magnifyingglass")
-                                .onTapGesture {
-                                    searchLocation(target: self.location) { response in
-                                        self.addresses = response
-                                        self.showSheet = true
-                                    }
-                                }
+                            Text(location)
+                                .font(.system(size: 16, weight: .bold))
                         }
                         .padding(16)
                         .frame(width: 343, alignment: .center)
@@ -169,17 +158,35 @@ struct CapsuleItemFormView: View {
                         )
                     }
                 }
-            }
-            .sheet(isPresented: $showSheet, content: {
-                Overlay(showSheet: $showSheet, addresses: $addresses, completion: { item in
-                    getLatLng(target: item.roadAddress) { x, y in
-                        coord = (x, y)
-                        self.location = item.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                .padding(.bottom, 10)
+
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack {
+                        Text("캡슐 코드")
+                            .font(
+                                .system(size: 20, weight: .bold)
+                            )
+
+                        Spacer()
                     }
-                })
-                .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
-            })
+                    .padding(.bottom, 10)
+
+                    HStack(alignment: .center, spacing: 24) {
+                        TextField("", text: Binding.constant(capsuleCode))
+                            .font(.system(size: 16, weight: .bold))
+                            .textSelection(.enabled)
+                    }
+                    .padding(16)
+                    .frame(width: 343, alignment: .center)
+                    .background(Color(red: 0.97, green: 0.97, blue: 0.96))
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .inset(by: 0.5)
+                            .stroke(Color(red: 0.84, green: 0.84, blue: 0.82), lineWidth: 1)
+                    )
+                }
+            }
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -195,8 +202,7 @@ struct CapsuleItemFormView: View {
                 ToolbarItem(placement: .principal) {
                     Text("타임 캡슐")
                         .font(
-                            Font.custom("Pretendard Variable", size: 20)
-                                .weight(.semibold)
+                            .system(size: 20, weight: .semibold)
                         )
                         .multilineTextAlignment(.center)
                         .frame(width: 295, alignment: .top)
@@ -245,8 +251,4 @@ struct CapsuleItemFormView: View {
             }
         }
     }
-}
-
-#Preview {
-    CapsuleItemFormView()
 }

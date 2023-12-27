@@ -91,8 +91,8 @@ struct LoginView: View {
                 parameters: parameters,
                 encoding: JSONEncoding.default
             ).response { result in
-                if var cookie = result.response?.headers["Set-Cookie"],
-                   var sid = extractConnectSID(from: cookie)
+                if let cookie = result.response?.headers["Set-Cookie"],
+                   let sid = extractConnectSID(from: cookie)
                 {
                     Global.default.sid = sid
                     dismissAction.callAsFunction()

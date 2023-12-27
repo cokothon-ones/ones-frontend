@@ -71,7 +71,6 @@ struct MapView: View {
                         .scaleEffect(1.5)
                         .padding()
                         .onTapGesture {
-                            print("tap")
                             searchLocation(target: target) { result in
                                 self.addresses = result
                                 showSheet = true
@@ -112,11 +111,18 @@ struct MapView: View {
 struct UIMapView: UIViewRepresentable {
     var coord: (Double, Double)
 
+    var coords: [NMGLatLng] = []
+
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
         view.showZoomControls = false
         view.mapView.positionMode = .direction
         view.mapView.zoomLevel = 13
+
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: 37.611035490773, lng: 126.99457310622)
+        marker.mapView = view.mapView
+
         return view
     }
 
@@ -127,13 +133,5 @@ struct UIMapView: UIViewRepresentable {
         cameraUpdate.animation = .fly
         cameraUpdate.animationDuration = 1
         uiView.mapView.moveCamera(cameraUpdate)
-
-        let marker = NMFMarker()
-        marker.position = NMGLatLng(lat: self.coord.1, lng: self.coord.0)
-        marker.mapView = uiView.mapView
     }
-}
-
-#Preview {
-    MapView()
 }

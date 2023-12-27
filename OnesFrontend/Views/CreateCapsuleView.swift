@@ -85,9 +85,10 @@ struct CustomDatePicker: View {
 }
 
 struct CreateCapsuleView: View {
-    @State var location: String = ""
+    @Binding var location: String
     @State var capsuleTitle: String = ""
     @State var now: Date = .now
+    @Binding var capsuleCode: String
 
     @State var addresses: [NaverLocalSearchResponseDTO.Item] = []
     @State var showSheet: Bool = false
@@ -193,6 +194,8 @@ struct CreateCapsuleView: View {
                         CapsuleRoomService.createCapsuleRoom(capsuleRoomRequestDTO: CapsuleRoomRequestDTO(
                             title: capsuleTitle, date: now, location: location, latitude: coord.1, longitude: coord.0
                         )) { code in
+                            capsuleCode = code
+
                             onConfirm()
                         }
                     }
@@ -215,8 +218,4 @@ struct CreateCapsuleView: View {
             .presentationDragIndicator(.visible)
         })
     }
-}
-
-#Preview {
-    CreateCapsuleView()
 }

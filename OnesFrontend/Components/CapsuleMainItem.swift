@@ -12,6 +12,8 @@ struct CapsuleMainItem: View {
     var date: Date
     var dDay: Int
     var isOpen: Bool = true
+    var location: String
+    var capsuleCode: String
 
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -46,7 +48,7 @@ struct CapsuleMainItem: View {
 
                         if !isOpen {
                             NavigationLink {
-                                CapsuleItemFormView()
+                                CapsuleItemFormView(location: location, capsuleCode: capsuleCode)
                             } label: {
                                 Text("\(formatter.string(from: date))")
                                     .foregroundColor(.white)
@@ -123,8 +125,4 @@ struct CapsuleMainItem: View {
         }
         .padding(.horizontal, 26)
     }
-}
-
-#Preview {
-    CapsuleMainItem(title: "Test", date: .now, dDay: 0)
 }
